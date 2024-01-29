@@ -6,13 +6,13 @@
 | ----------- | ---------------------- |
 | TeamID      |        Team-088        |
 | TeamName    |         Chaseb         |
-| Captain     |            |
+| Captain     |         Hao Liu
 | Captain     | haoliu10@illinois.edu  |
 | Member1     |        Zehao Ji        |
 | Member1     | zehaoji2@illinois.edu  |
 | Member2     |       Yuxuan Nan       |
 | Member2     | yuxuann2@illinois.edu  |
-| Member3     |                        |
+| Member3     |       Zixin Mao        |
 | Member3     | zixinm2@illinois.edu   |
 
 ## Project Information

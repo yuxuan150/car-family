@@ -4,16 +4,16 @@
 
 |   Info      |        Description     |
 | ----------- | ---------------------- |
-| TeamID      |        Team-000        |
-| TeamName    |         sample         |
-| Captain     |       Abdu Alawini     |
-| Captain     |  alawini@illinois.edu  |
-| Member1     |        Kevin Pei       |
-| Member1     |   kevin2@illinois.edu  |
+| TeamID      |        Team-088        |
+| TeamName    |         Chaseb         |
+| Captain     |            |
+| Captain     | haoliu10@illinois.edu  |
+| Member1     |        Zehao Ji        |
+| Member1     | zehaoji2@illinois.edu  |
 | Member2     |                        |
-| Member2     |                        |
+| Member2     | yuxuann2@illinois.edu  |
 | Member3     |                        |
-| Member3     |                        |
+| Member3     | zixinm2@illinois.edu   |
 
 ## Project Information
 

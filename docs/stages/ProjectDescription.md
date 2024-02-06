@@ -42,14 +42,12 @@ The data comes from Transfermarkt, which is one of the largest sports websites i
 
 
 ## Functionality Description
-The web portal for a fantasy soccer game will offer a wide range of functionalities to its users.
+Functionality Description:
+Our website have the following services:
+Car Info: users can get access to a certain type of car’s information by typing the name of the car or by selecting the filter. In this case, the user can have a comprehensive understanding of each cars’ performance. Within this service, we also provide direct comparison between two cars allowing users to make direct comparisons.
+cars for sale: we provide detailed information about the current selling cars and their prices. This allows the user to search for the specific car that they like( Ex: color, performance, etc.) For each car for sale, we also include the market price for such specific cars. The user may type in the car name or select a price range for filtering.
+cars sold: we also provide the historical records of the deal for different types of cars which allow the users to compare the price and may find out the best time to buy a car. The user can type in the car name or select the car for checking the information.
 
-Firstly, the login screen is displayed and the user is prompted to enter his/her login credentials. 
-The admin can add new users to the database. The admin can also delete users from the database. The admin can also update the user details in the database. The admin can also view the list of users in the database. Admin can also view all the teams' details in the database and also view all the players' details in the database. Admin is able to make changes to the current player and team database for updating and maintaining the information provided on the webpage. The admin can choose to archive certain players to make them “inactive”, which is similar to deletion but the player’s data will be kept for observation only.
-
-The general user will see the list of players in his current team as the landing page. He can search for players based on different parameters like name, position, rating , base price etc. The user can add(insert) players to his team, remove(delete) players from his team, update(update) the players in his team and view the players in his team. The user can also manage positions of players in their team to simulate different tactics that may be used in the field. 
-
-With these and other functionalities, the web portal for a fantasy soccer game will provide a comprehensive and engaging platform for users to experience the excitement of soccer and gaming.
 
 ## UI Mockup
 
@@ -65,10 +63,10 @@ the main page of how our website will work.
 
 | Member | Task |
 | --- | --- |
-| Payal Mantri | Initial setup of the frontend in React, and work on different UI Pages. |
-| Ammar Raza | Creating the frontend User Interface in React, set up devops to host the application|
-| Stephen Moy | Setting up the backend database and creating APIs in Java |
-| Youhan Li | Setting up the backend user database and connecting the backend with the frontend. Work on setting up authorization |
+| Yuxuan Nan | Creating the frontend User Interface in React, set up devops to host the application |
+| Zixin Mao | Setting up the backend database|
+| Hao Liu | Working on UI page and frontend User Interface |
+| Zehao Ji | connect the backend with the frontend |
 
 
  ## Final Demo Video

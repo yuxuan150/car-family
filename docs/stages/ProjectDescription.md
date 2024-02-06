@@ -53,10 +53,10 @@ With these and other functionalities, the web portal for a fantasy soccer game w
 
 ## UI Mockup
 
-Login Page is displayed when the user first visits the website. The user can enter his login credentials and login to the website.
-![home](https://github.com/cs411-alawini/sp24-cs411-team088-Chaseb/assets/90883274/23adcea9-6509-4774-ab9a-a0fd63857881)
-
+Login Page is displayed when the user first visits the website. If user have a account just sign in, if not he need to sing up.
 Once the user enters his login credentials and is authenticated, the landing page is displayed. The user can then search for players  in the search bar. 
+
+![home](https://github.com/cs411-alawini/sp24-cs411-team088-Chaseb/assets/90883274/23adcea9-6509-4774-ab9a-a0fd63857881)
 
 ![Landing page after login](UIMockup/LandingPage.png "Landing Page.")
 

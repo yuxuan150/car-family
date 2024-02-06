@@ -19,6 +19,7 @@ Car Family is a web platform to help users quickly sort and find the cars that p
 The website we build aims for potential customers who are interested in purchasing cars but they may not know what to choose. In this case this website allows them to have access to information about the car they like immediately. Also if they do not have any brand preferences, this website can find the car that is most suitable for them based on their preferences(Ex: FWD/RWD, Sedan/SUV). Beside this, the user can also have two cars be compared directly with their information shown. Also they can check the sales information before to have a better sense of the price of such a car. The simple feature might be showing information of the specific car they choose, while the complex feature may be filtering based on users’ demand, comparing two cars. 
 There are similar websites such as Cars, Carfax, Edmunds. But our website is different because we include a direct comparison between two cars based on the user’s preferences and we also include the market price comparison of the used cars so that the user can choose the car which has the best price.
 
+![home](https://github.com/cs411-alawini/sp24-cs411-team088-Chaseb/assets/90883274/bb1bc2a3-3f49-4bd4-8ffc-1e934159167a)
 
 ## Realness
 The database server will store the below entities:

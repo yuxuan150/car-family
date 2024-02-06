@@ -12,7 +12,10 @@
 ## Project Summary
 We aim to build a website which allows users to check for detailed information of the car they search(Ex: Make, Model, Engine, Fuel Type). The user can also compare a specific aspect of the car( Ex: Engine difference between Mustang and Camaro)  to have a better understanding of differences. What is more, this website will also include the recent sales information on used cars so that the users can know about the price of the car they liked, what is more we will also include a market price which allows the user to compare and find out the car with the best price that they can afford. For interaction, the user can login with their account, find the car they like to know by searching names or choose the constraints. The user can also compare the car with others on the specific performance.
 ## Description
-Car Family is a web platform to help users quickly sort and find the cars that people are looking for, it could also help people determine whether they should sell or buy a used car based on price. The project involves designing, sorting, combining, and filtering the database so that it helps the user to find their best car. Our platform would include the information of Name Model ,Company,Year of Purchase,KM's driven,Price,Fuel type,Registration city,Transmission,Condition means car is used or new,Seller Location,Features of cars Images of selling car.  Based on that, users would visualize to know the information of the car that they are looking for. Also, based on the Car Family platform, users could also compare different cars to see the differences of car’s infornamation. Moreover, CarFamily also provides used car information. It would help users to determine when and where to buy/sell a car is more cost-sufficient. The information of this part would be pricesold, yearsold,milage, make, model,trim, engine,year,zipcode, id.    Users  Based on these, users would know which car is more value-maintaining, and which car is not.   We will use some algorithms to calculate the hedge ratio, and we will also use MySQL to search the data from the database and SQL to establish the database. We will also use HTML5, CSS, Javascript, React.js to design our frontend webpage.
+Car Family is a web platform to help users quickly sort and find the cars that people are looking for, it could also help people determine whether they should sell or buy a used car based on price. The project involves designing, sorting, combining, and filtering the database so that it helps the user to find their best car. Our platform would include the information of Name Model ,Company,Year of Purchase,KM's driven,Price,Fuel type,Registration city,Transmission,Condition means car is used or new,Seller Location,Features of cars Images of selling car.  Based on that, users would visualize to know the information of the car that they are looking for.
+Also, based on the Car Family platform, users could also compare different cars to see the differences of car’s infornamation. Moreover, CarFamily also provides used car information. It would help users to determine when and where to buy/sell a car that is more cost-sufficient. The information of this part would be pricesold, yearsold,mileage, make, model,trim, engine,year,zipcode, id. Based on these, users would know which car is more value-maintaining, and which car is not.   
+We will use some algorithms to calculate the hedge ratio, and we will also use MySQL to search the data from the database and SQL to establish the database. We will also use HTML5, CSS, Javascript, React.js to design our frontend webpage. 
+
 
 
 ## Usefulness
@@ -21,24 +24,24 @@ There are similar websites such as Cars, Carfax, Edmunds. But our website is dif
 
 
 ## Realness
-The database server will store the below entities:
+We already have two datasets, which include  Name, Model ,Company,Year of Purchase,KM's driven,Price,Fuel type,Registration city,Transmission,Condition means car is used or new,Seller Location,Features of cars Images of selling car. pricesold, yearsold,mileage, make, model,trim, engine,year,zipcode, id.have  the data is from kaggle.com, and it is a CSV file. 
+which are 10.9MB and 13.1MB.
+Data link:
+https://www.kaggle.com/datasets/abdullahkhanuet22/olx-cars-dataset
+https://www.kaggle.com/datasets/tsaustin/us-used-car-sales-data
+https://www.kaggle.com/datasets/andreinovikov/used-cars-dataset
+
 
 
 |   Entity    |   Attributes                 |  
 | ----------- | -----------------------------| 
-| User        |    userId, name, email, password, role, fundsAvailable |
-| TeamDetails | teamId , userId , createdDate, teamName, points |
-| Player      |    playerId, playerName, playerPosition, playerRating, playerBasePrice, Nationality |
-| TeamPlayer | teamPlayerId, teamID, playerId, dateAdded |
-| Games | gameId, homeTeamId, awayTeamId, homeScore, awayScore , datePlayed, location |
+| User        |    userid, username, email, password |
+| Car_info    | carid, make,model,engine,transmission,drivetrain, fuel type,mpg |
+| Player      |   carid, make, Model ,Company,Year of Purchase,KM's driven,Fuel type,Registration city,Transmission,Condition means car is used or new,Seller Location,Features of car, Images of selling car. pricesold, yearsold,mileage, make, model,trim, engine,year,zipcode |
+| Current_car_selling | carid, make, Model ,Company,Year of Purchase,KM's driven,Price,Fuel type,Registration city,Transmission,Condition means car is used or new,Seller Location,Features of car, Images of selling car, mileage, make, model,trim, engine,year,zipcode,  |
 
 
 
-
-### Data Source Links: <br /> 
-https://www.kaggle.com/datasets/davidcariboo/player-scores?select=players.csv
-
-The data comes from Transfermarkt, which is one of the largest sports websites in the world. The footballing information we will be using is listed in the link above. The database is updated on a weekly basis.
 
 
 ## Functionality Description

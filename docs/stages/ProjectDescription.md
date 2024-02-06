@@ -58,16 +58,9 @@ Once the user enters his login credentials and is authenticated, the landing pag
 
 ![Screenshot 2024-02-05 234531](https://github.com/cs411-alawini/sp24-cs411-team088-Chaseb/assets/90883274/fe0e6ce3-490a-401b-881e-43e7a440e4c4)
 
+the main page of how our website will work.
+![Screenshot 2024-02-06 000017](https://github.com/cs411-alawini/sp24-cs411-team088-Chaseb/assets/90883274/d5d68268-119d-4839-90d2-94fa713dbf9d)
 
-![Landing page after login](UIMockup/LandingPage.png "Landing Page.")
-
-The Admin portal is displayed when the user logs in as an admin. The admin can add new users, delete users, update user details, view all users, view all teams and view all players.
-
-![Admin portal](UIMockup/AdminPortal.png "Admin Portal.")
-## Work Distribution
-
-- All team members will equally contribute to DB UML diagrams and design.
-- Each page will require querying based on concepts from the course. We plan to include Triggers, Stored Procedures and CRUD operations.
 
 
 | Member | Task |

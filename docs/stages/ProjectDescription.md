@@ -13,13 +13,16 @@
 We aim to build a website which allows users to check for detailed information of the car they search(Ex: Make, Model, Engine, Fuel Type). The user can also compare a specific aspect of the car( Ex: Engine difference between Mustang and Camaro)  to have a better understanding of differences. What is more, this website will also include the recent sales information on used cars so that the users can know about the price of the car they liked, what is more we will also include a market price which allows the user to compare and find out the car with the best price that they can afford. For interaction, the user can login with their account, find the car they like to know by searching names or choose the constraints. The user can also compare the car with others on the specific performance.
 ## Description
 Car Family is a web platform to help users quickly sort and find the cars that people are looking for, it could also help people determine whether they should sell or buy a used car based on price. The project involves designing, sorting, combining, and filtering the database so that it helps the user to find their best car. Our platform would include the information of Name Model ,Company,Year of Purchase,KM's driven,Price,Fuel type,Registration city,Transmission,Condition means car is used or new,Seller Location,Features of cars Images of selling car.  Based on that, users would visualize to know the information of the car that they are looking for.
+
 Also, based on the Car Family platform, users could also compare different cars to see the differences of car’s infornamation. Moreover, CarFamily also provides used car information. It would help users to determine when and where to buy/sell a car that is more cost-sufficient. The information of this part would be pricesold, yearsold,mileage, make, model,trim, engine,year,zipcode, id. Based on these, users would know which car is more value-maintaining, and which car is not.   
+
 We will use some algorithms to calculate the hedge ratio, and we will also use MySQL to search the data from the database and SQL to establish the database. We will also use HTML5, CSS, Javascript, React.js to design our frontend webpage. 
 
 
 
 ## Usefulness
 The website we build aims for potential customers who are interested in purchasing cars but they may not know what to choose. In this case this website allows them to have access to information about the car they like immediately. Also if they do not have any brand preferences, this website can find the car that is most suitable for them based on their preferences(Ex: FWD/RWD, Sedan/SUV). Beside this, the user can also have two cars be compared directly with their information shown. Also they can check the sales information before to have a better sense of the price of such a car. The simple feature might be showing information of the specific car they choose, while the complex feature may be filtering based on users’ demand, comparing two cars. 
+
 There are similar websites such as Cars, Carfax, Edmunds. But our website is different because we include a direct comparison between two cars based on the user’s preferences and we also include the market price comparison of the used cars so that the user can choose the car which has the best price.
 
 
@@ -37,7 +40,7 @@ https://www.kaggle.com/datasets/andreinovikov/used-cars-dataset
 | ----------- | -----------------------------| 
 | User        |    userid, username, email, password |
 | Car_info    | carid, make,model,engine,transmission,drivetrain, fuel type,mpg |
-| Player      |   carid, make, Model ,Company,Year of Purchase,KM's driven,Fuel type,Registration city,Transmission,Condition means car is used or new,Seller Location,Features of car, Images of selling car. pricesold, yearsold,mileage, make, model,trim, engine,year,zipcode |
+| Used_car_sold      |   carid, make, Model ,Company,Year of Purchase,KM's driven,Fuel type,Registration city,Transmission,Condition means car is used or new,Seller Location,Features of car, Images of selling car. pricesold, yearsold,mileage, make, model,trim, engine,year,zipcode |
 | Current_car_selling | carid, make, Model ,Company,Year of Purchase,KM's driven,Price,Fuel type,Registration city,Transmission,Condition means car is used or new,Seller Location,Features of car, Images of selling car, mileage, make, model,trim, engine,year,zipcode,  |
 
 

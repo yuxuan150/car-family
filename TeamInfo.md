@@ -5,7 +5,7 @@
 |   Info      |        Description     |
 | ----------- | ---------------------- |
 | TeamID      |        Team-088        |
-| TeamName    |     team088-Chaseb     |
+| TeamName    |         Chaseb         |
 | Captain     |         Hao Liu
 | Captain     | haoliu10@illinois.edu  |
 | Member1     |        Zehao Ji        |

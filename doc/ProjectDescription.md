@@ -40,8 +40,7 @@ https://www.kaggle.com/datasets/rkiattisak/sports-car-prices-dataset
 |   Entity    |   Attributes                 |  
 | ----------- | -----------------------------| 
 | Users       |    UserID (PK), Username, Email, Password |
-| CarModels   | CarID (PK), TeamID(FK), Brand, Model, Engine, Transmission, Drivetrain, FuelType, MPG
- |
+| CarModels   | CarID (PK), TeamID(FK), Brand, Model, Engine, Transmission, Drivetrain, FuelType, MPG|
 | Sales      |   SaleID (PK), CarID (FK), UserID (FK), Company, YearOfPurchase, KMsDriven, RegistrationCity, Condition, SellerLocation, Features, ImageURLs, PriceSold, YearSold, Mileage, Trim, Year, ZipCode |
 | Listings | ListingID (PK), CarID (FK), UserID (FK), Company, YearOfPurchase, KMsDriven, ListingPrice, RegistrationCity, Condition, SellerLocation, Features, ImageURLs, Mileage, Trim, Year, ZipCode |
 |CarTeams  | TeamID (PK), UserID(FK), AssembleDate |

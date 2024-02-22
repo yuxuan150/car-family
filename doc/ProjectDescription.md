@@ -43,7 +43,7 @@ https://www.kaggle.com/datasets/rkiattisak/sports-car-prices-dataset
 | Car_info    | carid, make,model,engine,transmission,drivetrain, fuel type,mpg |
 | Used_car_sold      |   carid, make, Model ,Company,Year of Purchase,KM's driven,Fuel type,Registration city,Transmission,Condition means car is used or new,Seller Location,Features of car, Images of selling car. pricesold, yearsold,mileage, make, model,trim, engine,year,zipcode |
 | Current_car_selling | carid, make, Model ,Company,Year of Purchase,KM's driven,Price,Fuel type,Registration city,Transmission,Condition means car is used or new,Seller Location,Features of car, Images of selling car, mileage, make, model,trim, engine,year,zipcode,  |
-｜Assemble_your_team  | Car Make,Car Model,Year,Engine Size,Horsepower,Torque,0-60 MPH Time,Price |
+|Assemble_your_team  | Car Make,Car Model,Year,Engine Size,Horsepower,Torque,0-60 MPH Time,Price |
 
 
 

@@ -39,11 +39,12 @@ https://www.kaggle.com/datasets/rkiattisak/sports-car-prices-dataset
 
 |   Entity    |   Attributes                 |  
 | ----------- | -----------------------------| 
-| User        |    userid, username, email, password |
-| Car_info    | carid, make,model,engine,transmission,drivetrain, fuel type,mpg |
-| Used_car_sold      |   carid, make, Model ,Company,Year of Purchase,KM's driven,Fuel type,Registration city,Transmission,Condition means car is used or new,Seller Location,Features of car, Images of selling car. pricesold, yearsold,mileage, make, model,trim, engine,year,zipcode |
-| Current_car_selling | carid, make, Model ,Company,Year of Purchase,KM's driven,Price,Fuel type,Registration city,Transmission,Condition means car is used or new,Seller Location,Features of car, Images of selling car, mileage, make, model,trim, engine,year,zipcode,  |
-|Assemble_your_team  | teamID, assemble date,|
+| Users       |    UserID (PK), Username, Email, Password |
+| CarModels   | CarID (PK), TeamID(FK), Brand, Model, Engine, Transmission, Drivetrain, FuelType, MPG
+ |
+| Sales      |   SaleID (PK), CarID (FK), UserID (FK), Company, YearOfPurchase, KMsDriven, RegistrationCity, Condition, SellerLocation, Features, ImageURLs, PriceSold, YearSold, Mileage, Trim, Year, ZipCode |
+| Listings | ListingID (PK), CarID (FK), UserID (FK), Company, YearOfPurchase, KMsDriven, ListingPrice, RegistrationCity, Condition, SellerLocation, Features, ImageURLs, Mileage, Trim, Year, ZipCode |
+|CarTeams  | TeamID (PK), UserID(FK), AssembleDate |
 
 
 

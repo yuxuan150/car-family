@@ -21,9 +21,9 @@ We will use some algorithms to calculate the hedge ratio, and we will also use M
 
 
 ## Usefulness
-The website we build aims for potential customers who are interested in purchasing cars but they may not know what to choose. In this case this website allows them to have access to information about the car they like immediately. Also if they do not have any brand preferences, this website can find the car that is most suitable for them based on their preferences(Ex: FWD/RWD, Sedan/SUV). Beside this, users can also build their own car teams. Also they can check the sales information before to have a better sense of the price of such a car. The simple feature might be showing information of the specific car they choose, while the complex feature may be filtering based on users’ demand, assembling car teams. 
+The website we build aims for potential customers who are interested in purchasing cars but they may not know what to choose. In this case this website allows them to have access to information about the car they like immediately. Also if they do not have any brand preferences, this website can find the car that is most suitable for them based on their preferences(Ex: FWD/RWD, Sedan/SUV). Beside this, users can also build their own car teams. Also they can check the sales information before to have a better sense of the price of such a car. The simple feature might be showing information of the specific car they choose, while the complex feature may be filtering based on users’ demand, assembling car teams.
 
-There are similar websites such as Cars, Carfax, Edmunds. But our website is different because we include a direct comparison between two cars based on the user’s preferences and we also include the market price comparison of the used cars so that the user can choose the car which has the best price.
+There are similar websites such as Cars, Carfax, Edmunds. But our website is different because our website could assembling your dream car team, and it could also play against other players online which adds lots of fun. By choosing different cars as part of your team, user could know more information about the car which he choose, as a result, it is a better way to help user to choose his favourite car as well. 
 
 
 ## Realness

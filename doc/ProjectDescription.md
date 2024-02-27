@@ -75,6 +75,7 @@ the main page of how our website will work.
 
 
 ![Screenshot 2024-02-26 220425](https://github.com/cs411-alawini/sp24-cs411-team088-Chaseb/assets/90883274/4886272f-edd5-42ba-9a88-024331345ad3)
+![Screenshot 2024-02-26 212314](https://github.com/cs411-alawini/sp24-cs411-team088-Chaseb/assets/90883274/478c1cfc-ce73-426c-80b7-8cc25be62138)
 
 | Member | Task |
 | --- | --- |

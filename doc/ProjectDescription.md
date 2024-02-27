@@ -75,7 +75,8 @@ Once the user login successfully, this user can click Sales to get the sales rec
 
 
 ![Screenshot 2024-02-26 220425](https://github.com/cs411-alawini/sp24-cs411-team088-Chaseb/assets/90883274/4886272f-edd5-42ba-9a88-024331345ad3)
-In this page, uesr can manage their car team by adding cars or deleting cars/
+
+In this page, uesr can manage their car team by adding cars or deleting cars.
 ![Screenshot 2024-02-26 221846](https://github.com/cs411-alawini/sp24-cs411-team088-Chaseb/assets/90883274/d70f0ceb-0dcd-41c2-9d48-1bbc2af1a7a1)
 
 | Member | Task |

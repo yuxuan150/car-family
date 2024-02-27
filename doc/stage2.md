@@ -1,5 +1,5 @@
 Conceptual Design (UML)
-For the UML, we will use five entities based on your description: Users, CarModels, Sales, Listings, and an additional entity CarTeams for users to build up their own teams. Here are the assumptions and cardinality descriptions:
+For the UML, we will use five entities based on your description: Users, CarModels, Sales, Listings, and an additional entity CarTeams for users to build up their own teams. Here are the assumptions and cardinality ##descriptions:
     1. Users: Represents the accounts on the platform.
         · Description: Each user can list multiple cars for sale, assemble a unique car team (become the captain of the team), and view multiple historical sales records.
     2. CarModels: Contains detailed static information about car models.

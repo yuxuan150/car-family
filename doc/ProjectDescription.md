@@ -72,9 +72,9 @@ Once the user enters his login credentials and is authenticated, the landing pag
 ![Screenshot 2024-02-26 212314](https://github.com/cs411-alawini/sp24-cs411-team088-Chaseb/assets/90883274/16e8f30f-b200-41f3-b122-92137d1ef5e4)
 
 the main page of how our website will work.
-![Screenshot 2024-02-06 000017](https://github.com/cs411-alawini/sp24-cs411-team088-Chaseb/assets/90883274/d5d68268-119d-4839-90d2-94fa713dbf9d)
 
 
+![Screenshot 2024-02-26 220425](https://github.com/cs411-alawini/sp24-cs411-team088-Chaseb/assets/90883274/4886272f-edd5-42ba-9a88-024331345ad3)
 
 | Member | Task |
 | --- | --- |

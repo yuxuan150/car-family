@@ -31,7 +31,8 @@ For the UML, we will use five entities based on your description: Users, CarMode
       5. CarTeams(TeamID: INT [PK], UserID: INT [FK to Users.UserID], AssembleDate: INT)
 
 # Normalization:
-      · The schema aims to be in the Third Normal Form (3NF) by ensuring that all the fields are atomic, only storing information relevant to the entity, and there is no transitive dependency.
+      · A relation R is in 3rd normal form if: whenever there is a nontrivial dependency A1,A2,...An->B for R, then {A1,A2,...,An} is a super-key for R, or B is part of a key.
+      · R is in BCNF if whenever X->A holds, then X is a superkey.The BCNF is slightly stricter than 3NF, and it doesn't let R get away with it if A is part of some key. So, BCNF is "more aggressive" in splitting.
       · Chose 3NF over BCNF due to its balance between strict normalization and practical usability, considering that BCNF can sometimes result in excessive table decomposition which might not be necessary for this application context.
  
  

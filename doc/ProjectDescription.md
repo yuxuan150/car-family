@@ -54,13 +54,13 @@ https://www.kaggle.com/datasets/rkiattisak/sports-car-prices-dataset
 Functionality Description:
 Our website have the following services:
 CarModels: users can get access to a certain type of car’s information by typing the name of the car or by selecting the filter. In this case, the user can have a comprehensive understanding of each cars’ performance. Within this service, we also provide direct comparison between two cars allowing users to make direct comparisons.
-Listings: we provide detailed information about the current selling cars and their prices. This allows the user to search for the specific car that they like( Ex: color, performance, etc.) For each car for sale, we also include the market price for such specific cars. The user may type in the car name or select a price range for filtering.
-Sales: we also provide the historical records of the deal for different types of cars which allow the users to compare the price and may find out the best time to buy a car. The user can type in the car name or select the car for checking the information.
+recall: we provide detailed information about the specific type of car which has been recalled. This allows the user to search for the recall id that they are looking for. For each car for sale, we also include the reason and components for such specific cars, so that user could know more about this specific car.
+car history: we also provide the historical records of the deal for different types of cars which allow the users to know whether it has an accident or not, and also include all other records of this specific car. The user can type in the vin number for checking the information.
 
 User: In this mode, the user would create their own username, passwords, our website will insert the information to our database, the user can change their username or passwords and these will also update to database.
 Car model: This will contain the database shown to the user about information of different cars. User can type the car name in search bar and our database systems will read and found out the car they want.
-Sales: This contain the sold cars history. Which will updates when I car is sold from the sale listing. The user can also type in the search bar of the car they want to see about the sales history and we will read this and filter out the data for users.
-Listing: This will contain the information of the cars that is currently on sales. The user can also insert the information of cars that they want to sell. Once the car is sold, such data will be delete and insert into Sales.
+Car history: This contain the specific cars history. Which include all the information about this car. The user can also type in the vin they want to see about the history and we will read this and filter out the data for users.
+Recall: This will contain the information of the cars that has been recalled. The user can type the recall ID in order to see whether it has been recalled or not. Once it has recorded, it would show all the recall information about this car.
 CarTeam: This is a creative part which user can form their own car team. The user can choose the car they like and form a car team, which will be inserted in our database, our database will read the engine and power and provide the rate of such team.
 CarTeams: allows users to build up their own teams
 

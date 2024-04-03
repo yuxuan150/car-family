@@ -5,20 +5,18 @@ For the UML, we will use five entities based on your description: Users, CarMode
         . Description: Each user can list multiple cars for sale, assemble a unique car team (become the captain of the team), and view multiple historical sales records.
     2. CarModels: Contains detailed static information about car models.
         · Description: This entity stores general information about car models that isn't specific to a sale instance. It's modeled separately from Sales and Listings to avoid redundancy and ensure that details like brand, model, engine, etc., are stored in one place.
-    3. Sales: Tracks historical sales data.
-        · Description: Each record is a past sale instance, linked to CarModels for detailed specifications and to User if we want to track which user sold the car. It's assumed that each sale record is unique.
-    4. Listings: Represents cars currently listed for sale.
-        · Description: Similar to Sales, but for ongoing listings. Each listing is linked to CarModels for car details and Users for the seller's information.
+    3. Recall: showing the recall information of a given specific car.
+        · Description: It store each recall record for specific car. It is separate from Car models, as a result , user could directly search for recallId to see the record of specific recall.
+    4. Car history: Represents the accident , mileage and some other key information for used car.
+        · Description: Similar to Recall, use could directly search the vin numeber to see all the information about specific use dcar they are looking for.
     5. CarTeams: Users could build up a car team between different cars.
         · Description: This entity allows users to build different teams based on different models of cars, and users could find the cars in CarModels entities.
 
 
 # Relationships:
-      · A one-to-many relationship between Users and Sales/Listings/CarTeams, as a user can have multiple sales, listings, and comparisons but each sale, listing, or comparison is associated with one user.
+      · A many-to-one relationship between CarModels and Users, as a user can sell and buy different cars, but one car can only sold or bought by one user.
 
-      · A many-to-many relationship between CarModels and CarTeams through an associative entity, as each comparison can involve multiple cars, and each car can be involved in multiple comparisons.
-
-      · A one-to-many relationship between CarModels and both Sales and Listings, as each car instance in these entities refers to a single CarModels entity, but each CarModels can be referred to by multiple sales or listings.
+      · A many-to-many relationship between Users and both Recall and Car History through search, as each user can search multiple cars' history and recall information, and each car history and recall information can be involved in multiple users.
 
       · A one-to-one relationship between Users and CarTeams, once the user regressed, he/she could only build one team with one or multiple car models.
 
@@ -41,11 +39,11 @@ For the UML, we will use five entities based on your description: Users, CarMode
     1. Users
         · Attributes: UserID (PK), Username, Email, Password
     2. CarModels
-        · Attributes: CarID (PK), TeamID(FK), Brand, Model, Engine, Transmission, Drivetrain, FuelType, MPG
-    3. Sales
-        · Attributes: SaleID (PK), CarID (FK), UserID (FK), Company, YearOfPurchase, KMsDriven, RegistrationCity, Condition, SellerLocation, Features, ImageURLs, PriceSold, YearSold, Mileage, Trim, Year, ZipCode
-    4. Listings
-        · Attributes: ListingID (PK), CarID (FK), UserID (FK), Company, YearOfPurchase, KMsDriven, ListingPrice, RegistrationCity, Condition, SellerLocation, Features, ImageURLs, Mileage, Trim, Year, ZipCode
+        · Attributes: CarID (PK), TeamID(FK), Brand, Model, Year, Transmission, KM'sDrivetrain, FuelType, MPG,Price
+    3. CarHistory
+        · Attributes: Vin (PK), Brand, Model, Year, State,Color, Title_status, Mileage
+    4. Recall
+        · Attributes: Recall ID (PK), Report received date, Reason, Consequence summary,Component
     5. CarTeam
         · Attributes: TeamID (PK), UserID(FK), AssembleDate
 

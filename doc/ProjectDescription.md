@@ -10,9 +10,9 @@
 - [UI Mockup](#ui-mockup)
 - [Work Distribution](#work-distribution)
 ## Project Summary
-We aim to build a website which allows users to check for detailed information of the car they search(Ex: Model, Model, MPG, Fuel Type). Users could check the specific history of car he looking for, which to check whether it has accident or not. What is more, this website will also include the recent sales information on used cars so that the users can know about the price of the car they like. We will also include a recall model which could check the reason, components, and brand of recalled vehicle. For interaction, the user can login with their account, find the car they like to know by searching names or choose the constraints.
+We aim to build a website which allows users to check for detailed information of the car they search(Ex: Model, Model, MPG, Fuel Type). Users could check the specific history of car he looking for, which to check whether it has accident or not. What is more, this website will also include the recent sales information on used cars so that the users can know about the price of the car they like. We will also include a recall model which could check the reason, components, and brand of recalled vehicle. Car family also provides for checking the history of a given vehicle, such as whether there has been an accident. For interaction, the user can login with their account, find the car they like to know by searching names or choose the constraints.
 ## Description
-Car Family is a web platform to help users quickly sort and find the cars that people are looking for, it could also help people determine whether they should sell or buy a used car based on price. The project involves designing, sorting, combining, and filtering the database so that it helps the user to find their best car. Our platform would include the information of Name Model ,Company,Year of Purchase,KM's driven,Price,Fuel type,Registration city,Transmission,Condition means car is used or new,Seller Location,Features of cars Images of selling car.  Based on that, users would visualize to know the information of the car that they are looking for.
+Car Family is a web platform to help users quickly sort and find the cars that people are looking for, it could also help people determine whether they should sell or buy a used car based on price. The project involves designing, sorting, combining, and filtering the database so that it helps the user to find their best car. Our platform would include the information of brand, Model, MPG, Year of car,KM's driventrain,Price,Fuel type,Transmission.      Condition means car is used or new,Seller Location,Features of cars Images of selling car.  Based on that, users would visualize to know the information of the car that they are looking for.
 
 Also, based on the Car Family platform, users could also select some of their favorite car models to build up their fantasy car teams. Moreover, CarFamily also provides used car information. It would help users to determine when and where to buy/sell a car that is more cost-sufficient. The information of this part would be pricesold, yearsold,mileage, make, model,trim, engine,year,zipcode, id. Based on these, users would know which car is more value-maintaining, and which car is not.   
 
@@ -84,7 +84,7 @@ In this page, uesr can manage their car team by adding cars or deleting cars.
 | Yuxuan Nan | Creating the frontend User Interface in React, set up devops to host the application |
 | Zixin Mao | Setting up the backend database|
 | Hao Liu | Working on UI page and frontend User Interface |
-| Zehao Ji | connect the backend with the frontend |
+
 
 
  ## Final Demo Video

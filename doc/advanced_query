@@ -1,1 +1,13 @@
-<img width="1021" alt="Screenshot 2024-04-04 at 3 30 21 PM" src="https://github.com/cs411-alawini/sp24-cs411-team088-Chaseb/assets/90883274/a213e98f-a164-4eb1-917a-2155160df57a">
+/* To find nearby users' advertisements based on their location relative to a specific user (like user_id = 1) */
+SELECT ad.ad_id, ad.title, ua.user_id, ua.user_name, loc.city_name, 
+       SQRT(POW(loc.latitude - user_loc.latitude, 2) + POW(loc.longitude - user_loc.longitude, 2)) AS euclidean_distance
+FROM advertisement ad
+JOIN user_account ua ON ad.user_id = ua.user_id
+JOIN location loc ON ua.location_id = loc.location_id
+JOIN (
+    SELECT l.latitude, l.longitude
+    FROM user_account u
+    JOIN location l ON u.location_id = l.location_id
+    WHERE u.user_id = 1
+) AS user_loc
+ORDER BY euclidean_distance ASC;

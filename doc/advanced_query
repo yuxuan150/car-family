@@ -11,3 +11,40 @@ JOIN (
     WHERE u.user_id = 1
 ) AS user_loc
 ORDER BY euclidean_distance ASC;
+
+/* find users who has bid one more brands*/
+SELECT u.user_name, COUNT(DISTINCT c.brand) AS num_brands
+FROM user_account u
+JOIN bid b ON u.user_id = b.user_id
+JOIN car c ON b.car_id = c.car_id
+GROUP BY u.user_name
+HAVING COUNT(DISTINCT c.brand) > 1;
+
+/* list all cars and their highest bid */
+SELECT c.brand, c.model, c.year, c.color, max_bid.highest_bid
+FROM car c
+JOIN (
+    SELECT car_id, MAX(bid_price) AS highest_bid
+    FROM bid
+    GROUP BY car_id
+) AS max_bid ON c.car_id = max_bid.car_id;
+
+/*  average car price per city */
+SELECT 
+    b.car_id,
+    c.model,
+    b.user_id,
+    b.date_bid AS current_bid_date,
+    LEAD(b.date_bid) OVER(PARTITION BY b.car_id ORDER BY b.date_bid) AS next_bid_date,
+    b.bid_price AS current_bid_price,
+    LEAD(b.bid_price) OVER(PARTITION BY b.car_id ORDER BY b.date_bid) AS next_bid_price
+FROM 
+    bid b
+JOIN 
+    car c ON b.car_id = c.car_id
+WHERE 
+    c.model = 'chassis' 
+ORDER BY 
+    b.car_id, b.date_bid;
+
+

@@ -1,10 +1,11 @@
+/*Creat location table*/
 CREATE TABLE location (
   location_id SERIAL PRIMARY KEY,
   city_name VARCHAR(50) NOT NULL,
   latitude FLOAT NOT NULL,
   longitude FLOAT NOT NULL
 );
-
+/*Creat car table*/
 CREATE TABLE car (
   car_id SERIAL PRIMARY KEY,
   brand VARCHAR(100) NOT NULL,
@@ -13,7 +14,7 @@ CREATE TABLE car (
   year INT NOT NULL,
   price INT NOT NULL
 );
-
+/*Creat user_account table*/
 CREATE TABLE user_account (
   user_id SERIAL PRIMARY KEY,
   user_name VARCHAR(255) NOT NULL,
@@ -22,7 +23,7 @@ CREATE TABLE user_account (
   location_id BIGINT UNSIGNED NOT NULL,
   FOREIGN KEY (location_id) REFERENCES location(location_id)
 );
-
+/*Creat ad table*/
 CREATE TABLE advertisement (
   ad_id SERIAL PRIMARY KEY,
   car_id BIGINT UNSIGNED NOT NULL,
@@ -31,7 +32,7 @@ CREATE TABLE advertisement (
   FOREIGN KEY (car_id) REFERENCES car(car_id),
   FOREIGN KEY (user_id) REFERENCES user_account(user_id)
 );
-
+/*Creat bid table*/
 CREATE TABLE bid (
   bid_id SERIAL PRIMARY KEY,
   car_id BIGINT UNSIGNED NOT NULL,
@@ -42,3 +43,5 @@ CREATE TABLE bid (
   FOREIGN KEY (car_id) REFERENCES car(car_id),
   FOREIGN KEY (user_id) REFERENCES user_account(user_id)
 );
+
+

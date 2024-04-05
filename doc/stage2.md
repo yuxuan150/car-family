@@ -1,16 +1,16 @@
 # Conceptual Design (UML)
-For the UML, we will use five entities based on your description: Users, CarModels, Sales, Listings, and an additional entity CarTeams for users to build up their own teams. Here are the assumptions and cardinality descriptions
+For the UML, we will use five entities based on description: Users, CarModels, Location, Recall, and company. Here are the assumptions and cardinality descriptions
 
     1. Users: Represents the accounts on the platform.
-        . Description: Each user can list multiple cars for sale, assemble a unique car team (become the captain of the team), and view multiple historical sales records.
+        . Description: Each user can search for different car model. each user will contain userID, UserName, Email and password.
     2. CarModels: Contains detailed static information about car models.
-        · Description: This entity stores general information about car models that isn't specific to a sale instance. It's modeled separately from Sales and Listings to avoid redundancy and ensure that details like brand, model, engine, etc., are stored in one place.
+        · Description: This entity stores general information about car models, such as year, miles, model, price, color, location,recall information and brand. It would help user to determine which car he is looking for, and show more comprehensive static data show to user.
     3. Recall: showing the recall information of a given specific car.
-        · Description: It store each recall record for specific car. It is separate from Car models, as a result , user could directly search for recallId to see the record of specific recall.
-    4. Car history: Represents the accident , mileage and some other key information for used car.
-        · Description: Similar to Recall, use could directly search the vin numeber to see all the information about specific use dcar they are looking for.
-    5. CarTeams: Users could build up a car team between different cars.
-        · Description: This entity allows users to build different teams based on different models of cars, and users could find the cars in CarModels entities.
+        · Description: A recall on a car is issued when a manufacturer discovers a defect or safety concern that could potentially endanger drivers, passengers, or the public, necessitating a repair or adjustment to address the issue. Recall table store each recall information for specific car.  User could check these information by click on specific car model. It helps user to increase safety considerations. 
+    4. Company: It contains the company name and date for each car model.
+        · Description: Similar to Recall, user could find the company of the specific car through Carmodels. And it contains the company name and date of the company's creation.
+    5. Location: This table would contain both user location and specific car location. User could buy the closest car which he looking for.
+        · Description: This entity will contain longitude, latitude,  cityname. 
 
 
 # Relationships:

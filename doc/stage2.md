@@ -37,23 +37,23 @@ For the UML, we will use five entities based on description: Users, CarModels, L
 
 # Entities and Their Attributes:
     1. Users
-        · Attributes: UserID (PK), Username, Email, Password
+        · Attributes: UserID (PK),LocationID(FK), Username, Email, Password
     2. CarModels
-        · Attributes: CarID (PK), TeamID(FK), Brand, Model, Year, Transmission, KM'sDrivetrain, FuelType, MPG,Price
-    3. CarHistory
-        · Attributes: Vin (PK), Brand, Model, Year, State,Color, Title_status, Mileage
+        · Attributes: CarID (PK), CompanyID(FK), LocationID(FK), Model, Year, color, Miles, Price
+    3. Location
+        · Attributes: LocationID (PK), cityname, latitude,longitude
     4. Recall
-        · Attributes: Recall ID (PK), Report received date, Reason, Consequence summary,Component
-    5. CarTeam
-        · Attributes: TeamID (PK), UserID(FK), AssembleDate
+        · Attributes: Recall ID (PK), CarID(FK), Report received date, Reason, Consequence summary,Component
+    5. Company
+        · Attributes: Company name (PK), Created date, Company Name
 
 # Relationships:
-    · Users to Sales: One-to-Many (A user can sell multiple cars, but each sale record is associated with one user)
-    · Users to Listings: One-to-Many (A user can have multiple current listings)
-    · Users to CarTeams: One-to-One (A user can assemble only one team)
-    · CarModels to Sales: One-to-Many (Multiple sales records can refer to the same car model)
-    · CarModels to Listings: One-to-Many (Multiple listings can refer to the same car model)
-    · CarTeams to CarModels : one-to-many(A team can involve one or more different car models)
+    · Users to CarModels: Many-to-Many (A user can search multiple cars, and a car could be searched by multiple users)
+    · Users to Location: Many-to-One (A user can only have one location, but a location could contain multiple users)
+    · CarModels to Location: Many-to-One (A car can only have one location, but a location could contain multiple cars)
+    · CarModels to Recall: Many-to-One (Same model of car may recall at the same time with same reason )
+    · CarModels to Company: Many-to-One (A car could only belong to one company, but a company could have different model of car )
+    
 
 # Steps to Create the UML:
     1. Draw Entities: Start by drawing five rectangles, each representing one of the entities: User, CarModels, Sales, Listings, and CarTeams.

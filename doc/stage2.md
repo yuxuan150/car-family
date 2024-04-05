@@ -23,10 +23,10 @@ For the UML, we will use five entities based on description: Users, CarModels, L
 
 # Logical Design (Relational Schema)
       1. Users(UserID: INT [PK], Username: VARCHAR(255), Email: VARCHAR(255), Password: VARCHAR(255))
-      2. CarModels(CarID: INT [PK], TeamID: INT [FK to CarTeams.TeamID], Brand: VARCHAR(255), Model: VARCHAR(255), Engine: VARCHAR(255), Transmission: VARCHAR(255), Drivetrain: VARCHAR(255), FuelType: VARCHAR(255), MPG: DECIMAL)
-      3. Sales(SaleID: INT [PK], CarID: INT [FK to CarModels.CarID], UserID: INT [FK to Users.UserID], Company: VARCHAR(255), YearOfPurchase: YEAR, KMsDriven: INT, RegistrationCity: VARCHAR(255), Condition: VARCHAR(255), SellerLocation: VARCHAR(255), Features: TEXT, ImageURLs: TEXT, PriceSold: DECIMAL, YearSold: YEAR, Mileage: INT, Trim: VARCHAR(255), Year: YEAR, ZipCode: VARCHAR(255))
-      4. Listings(ListingID: INT [PK], CarID: INT [FK to CarModels.CarID], UserID: INT [FK to Users.UserID], Company: VARCHAR(255), YearOfPurchase: YEAR, KMsDriven: INT, ListingPrice: DECIMAL, RegistrationCity: VARCHAR(255), Condition: VARCHAR(255), SellerLocation: VARCHAR(255), Features: TEXT, ImageURLs: TEXT, Mileage: INT, Trim: VARCHAR(255), Year: YEAR, ZipCode: VARCHAR(255))
-      5. CarTeams(TeamID: INT [PK], UserID: INT [FK to Users.UserID], AssembleDate: INT)
+      2. CarModels(CarID: INT [PK], CompanyID: INT [FK to Company.CompanyID],LocationID: INT [FK to location.locationID], Model: VARCHAR(255), Year: INT, color: VARCHAR(255),Mile: INT,Price:INT)
+      3. Location(LocationID: INT[PK],cityname: VARCHAR(255), Latitude: DECIMAL, Longitude:DECIMAL)
+      4. Recall(Recall ID: INT[PK],CarID: INT [FK to CarModels.CarID], Report received date:INT,Reason:VARCHAR(255), Consequence summary:VARCHAR(255), Component: VARCHAR(255))
+      5. Company(CompanyID: INT [PK], created date: INT, company name: VARCHAR(255))
 
 # Normalization:
       · A relation R is in 3rd normal form if: whenever there is a nontrivial dependency A1,A2,...An->B for R, then {A1,A2,...,An} is a super-key for R, or B is part of a key.
@@ -45,7 +45,7 @@ For the UML, we will use five entities based on description: Users, CarModels, L
     4. Recall
         · Attributes: Recall ID (PK), CarID(FK), Report received date, Reason, Consequence summary,Component
     5. Company
-        · Attributes: Company name (PK), Created date, Company Name
+        · Attributes: CompanyID (PK), Created date, Company Name
 
 # Relationships:
     · Users to CarModels: Many-to-Many (A user can search multiple cars, and a car could be searched by multiple users)

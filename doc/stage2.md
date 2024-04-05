@@ -13,14 +13,6 @@ For the UML, we will use five entities based on description: Users, CarModels, L
         · Description: This entity will contain longitude, latitude,  cityname. 
 
 
-# Relationships:
-      · A many-to-one relationship between CarModels and Users, as a user can sell and buy different cars, but one car can only sold or bought by one user.
-
-      · A many-to-many relationship between Users and both Recall and Car History through search, as each user can search multiple cars' history and recall information, and each car history and recall information can be involved in multiple users.
-
-      · A one-to-one relationship between Users and CarTeams, once the user regressed, he/she could only build one team with one or multiple car models.
-
-
 # Logical Design (Relational Schema)
       1. Users(UserID: INT [PK], Username: VARCHAR(255), Email: VARCHAR(255), Password: VARCHAR(255))
       2. CarModels(CarID: INT [PK], CompanyID: INT [FK to Company.CompanyID],LocationID: INT [FK to location.locationID], Model: VARCHAR(255), Year: INT, color: VARCHAR(255),Mile: INT,Price:INT)

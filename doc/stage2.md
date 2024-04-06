@@ -14,7 +14,7 @@ For the UML, we will use five entities based on description: Users, CarModels, L
 
 
 # Logical Design (Relational Schema)
-      1. Users(UserID: INT [PK], Username: VARCHAR(255), Email: VARCHAR(255), Password: VARCHAR(255))
+      1. Users(UserID: INT [PK], locationID: INT [FK to Location.locationID], Username: VARCHAR(255), Email: VARCHAR(255), Password: VARCHAR(255))
       2. CarModels(CarID: INT [PK], CompanyID: INT [FK to Company.CompanyID],LocationID: INT [FK to location.locationID], Model: VARCHAR(255), Year: INT, color: VARCHAR(255),Mile: INT,Price:INT)
       3. Location(LocationID: INT[PK],cityname: VARCHAR(255), Latitude: DECIMAL, Longitude:DECIMAL)
       4. Recall(Recall ID: INT[PK],CarID: INT [FK to CarModels.CarID], Report received date:INT,Reason:VARCHAR(255), Consequence summary:VARCHAR(255), Component: VARCHAR(255))

@@ -4,7 +4,7 @@ CREATE TABLE users (
     UserName VARCHAR(255) NOT NULL,
     Email VARCHAR(255) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL,
-    location_id BIGINT UNSIGNED NOT NULL,
+    location_id INT,
     FOREIGN KEY (location_id) REFERENCES location(locationID)
 );
 
@@ -21,21 +21,20 @@ CREATE TABLE CarModels (
   CarID INT AUTO_INCREMENT PRIMARY KEY,
   Model VARCHAR(255) NOT NULL,
   year YEAR NOT NULL,
-  miles INT NOT NULL,
+  miles VARCHAR(255) NOT NULL,
   color VARCHAR(50),
-  price DECIMAL(10, 2) NOT NULL,
+  price VARCHAR(255) NOT NULL,
   company_id INT NOT NULL,
   location_id INT,
   FOREIGN KEY (company_id) REFERENCES company(company_id),
-  FOREIGN KEY (location_id) REFERENCES location(location_id)
+  FOREIGN KEY (location_id) REFERENCES location(locationID)
 );
-
 
 -- Recall Table
 CREATE TABLE recall (
     recallID INT AUTO_INCREMENT PRIMARY KEY,
     reason TEXT,
-    report_received_date DATE,
+    report_received_date YEAR NOT NULL,
     consequence_summary TEXT,
     component VARCHAR(255),
     CarID INT,
@@ -48,6 +47,3 @@ CREATE TABLE company (
     company_name VARCHAR(255) NOT NULL,
     created_date INT NOT NULL
 );
-
-
-

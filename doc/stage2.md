@@ -53,4 +53,51 @@ For the UML, we will use five entities based on description: Users, CarModels, L
     3. Draw Relationships: Connect the entities with lines to represent relationships. Add a diamond shape along the line if you want to clearly denote the relationship name or type.
     4. Denote Cardinalities: At each end of the relationship lines, denote the cardinality (one-to-many, many-to-many) using the appropriate symbols (1, N, M).
     5. Add Associative Entities if Needed: For the many-to-many relationship (CarModels to CarTeams), you might need to draw an associative entity or simply show that CarTeams has foreign keys referring back to CarModels.
+##Users
+##FDs:
+UserID -> UserName, Email, Password, LocationID
+##Minimal Basis:
+UserID -> UserName
+UserID -> Email
+UserID -> Password
+UserID -> LocationID
+
+##Location:
+##FDs:
+LocationID -> CityName, Latitude, Longitude
+##Minimal Basis:
+CarID-> LocationID
+UserID->LocationID
+
+##CarModels:
+##FDs:
+CarID -> Year, Color, Miles, Model, Price,LocationID,CompanyID
+##Minimal Basis:
+CarID -> Year
+CarID -> Color
+CarID -> Miles
+CarID -> Model
+CarID -> Price
+CarID->LocationID
+CarID->CompanyID
+
+##Recall:
+##FDs:
+RecallID -> ReportReceivedDate, Reason, ConsequenceSummary, Component, CarID
+CarID->RecallID
+##Minimal Basis:
+RecallID -> ReportReceivedDate
+RecallID -> Reason
+RecallID -> ConsequenceSummary
+RecallID -> Component
+RecallID -> CarID
+CarID->RecallID
+
+##Company:
+##FDs:
+CompanyID -> CompanyName, CreatedDate
+##Minimal Basis:
+CompanyID -> CompanyName
+CompanyID -> CreatedDate
+
  

@@ -57,47 +57,47 @@ For the UML, we will use five entities based on description: Users, CarModels, L
 ##FDs:
 UserID -> UserName, Email, Password, LocationID
 ##Minimal Basis:
-UserID -> UserName
-UserID -> Email
-UserID -> Password
-UserID -> LocationID
+UserID -> UserName;
+UserID -> Email;
+UserID -> Password;
+UserID -> LocationID;
 
 ##Location:
 ##FDs:
 LocationID -> CityName, Latitude, Longitude
 ##Minimal Basis:
-CarID-> LocationID
-UserID->LocationID
+CarID-> LocationID;
+UserID->LocationID;
 
 ##CarModels:
 ##FDs:
 CarID -> Year, Color, Miles, Model, Price,LocationID,CompanyID
 ##Minimal Basis:
-CarID -> Year
-CarID -> Color
-CarID -> Miles
-CarID -> Model
-CarID -> Price
-CarID->LocationID
-CarID->CompanyID
+CarID -> Year;
+CarID -> Color;
+CarID -> Miles;
+CarID -> Model;
+CarID -> Price;
+CarID->LocationID;
+CarID->CompanyID;
 
 ##Recall:
 ##FDs:
 RecallID -> ReportReceivedDate, Reason, ConsequenceSummary, Component, CarID
 CarID->RecallID
 ##Minimal Basis:
-RecallID -> ReportReceivedDate
-RecallID -> Reason
-RecallID -> ConsequenceSummary
-RecallID -> Component
-RecallID -> CarID
-CarID->RecallID
+RecallID -> ReportReceivedDate;
+RecallID -> Reason;
+RecallID -> ConsequenceSummary;
+RecallID -> Component;
+RecallID -> CarID;
+CarID->RecallID;
 
 ##Company:
 ##FDs:
 CompanyID -> CompanyName, CreatedDate
 ##Minimal Basis:
-CompanyID -> CompanyName
-CompanyID -> CreatedDate
+CompanyID -> CompanyName;
+CompanyID -> CreatedDate;
 
  

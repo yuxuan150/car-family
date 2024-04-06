@@ -1,47 +1,53 @@
-/*Creat location table*/
+-- Users Table
+CREATE TABLE users (
+    UserID INT AUTO_INCREMENT PRIMARY KEY,
+    UserName VARCHAR(255) NOT NULL,
+    Email VARCHAR(255) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    location_id BIGINT UNSIGNED NOT NULL,
+    FOREIGN KEY (location_id) REFERENCES location(locationID)
+);
+
+-- Location Table
 CREATE TABLE location (
-  location_id SERIAL PRIMARY KEY,
-  city_name VARCHAR(50) NOT NULL,
-  latitude FLOAT NOT NULL,
-  longitude FLOAT NOT NULL
+    locationID INT AUTO_INCREMENT PRIMARY KEY,
+    city_name VARCHAR(50) NOT NULL UNIQUE,
+    latitude FLOAT NOT NULL,
+    longitude FLOAT NOT NULL
 );
-/*Creat car table*/
-CREATE TABLE car (
-  car_id SERIAL PRIMARY KEY,
-  brand VARCHAR(100) NOT NULL,
-  model VARCHAR(255) NOT NULL,
-  color VARCHAR(25) NOT NULL,
-  year INT NOT NULL,
-  price INT NOT NULL
-);
-/*Creat user_account table*/
-CREATE TABLE user_account (
-  user_id SERIAL PRIMARY KEY,
-  user_name VARCHAR(255) NOT NULL,
-  email VARCHAR(255) NOT NULL,
-  password VARCHAR(255) NOT NULL,
-  location_id BIGINT UNSIGNED NOT NULL,
+
+-- CarModels Table
+CREATE TABLE CarModels (
+  CarID INT AUTO_INCREMENT PRIMARY KEY,
+  Model VARCHAR(255) NOT NULL,
+  year YEAR NOT NULL,
+  miles INT NOT NULL,
+  color VARCHAR(50),
+  price DECIMAL(10, 2) NOT NULL,
+  company_id INT NOT NULL,
+  location_id INT,
+  FOREIGN KEY (company_id) REFERENCES company(company_id),
   FOREIGN KEY (location_id) REFERENCES location(location_id)
 );
-/*Creat ad table*/
-CREATE TABLE advertisement (
-  ad_id SERIAL PRIMARY KEY,
-  car_id BIGINT UNSIGNED NOT NULL,
-  user_id BIGINT UNSIGNED NOT NULL,
-  title VARCHAR(255) NOT NULL,
-  FOREIGN KEY (car_id) REFERENCES car(car_id),
-  FOREIGN KEY (user_id) REFERENCES user_account(user_id)
+
+
+-- Recall Table
+CREATE TABLE recall (
+    recallID INT AUTO_INCREMENT PRIMARY KEY,
+    reason TEXT,
+    report_received_date DATE,
+    consequence_summary TEXT,
+    component VARCHAR(255),
+    CarID INT,
+    FOREIGN KEY (CarID) REFERENCES CarModels(CarID)
 );
-/*Creat bid table*/
-CREATE TABLE bid (
-  bid_id SERIAL PRIMARY KEY,
-  car_id BIGINT UNSIGNED NOT NULL,
-  user_id BIGINT UNSIGNED NOT NULL,
-  date_bid DATE NOT NULL,
-  bid_price INT NOT NULL,
-  bid_status VARCHAR(25) NOT NULL,
-  FOREIGN KEY (car_id) REFERENCES car(car_id),
-  FOREIGN KEY (user_id) REFERENCES user_account(user_id)
+
+-- Company Table
+CREATE TABLE company (
+    company_id INT AUTO_INCREMENT PRIMARY KEY,
+    company_name VARCHAR(255) NOT NULL,
+    created_date INT NOT NULL
 );
+
 
 

@@ -19,8 +19,8 @@ ORDER BY
 
 ## A specific user can search a specific car model and brand by distance. close to far
 SELECT
+company.company_name AS Brand,
   CarModels.Model,
-  company.company_name AS Brand,
   car_location.city_name AS CarLocation,
   SQRT(POW(user_location.latitude - car_location.latitude, 2) + POW(user_location.longitude - car_location.longitude, 2)) AS Distance
 FROM
@@ -31,9 +31,8 @@ INNER JOIN location AS car_location ON CarModels.location_id = car_location.loca
 INNER JOIN company ON CarModels.company_id = company.company_id
 WHERE
   users.UserID = 1000
-  AND CarModels.Model = 'Civic' 
   AND company.company_name = 'Honda'
+  AND CarModels.Model = 'Civic' 
 ORDER BY
   Distance;
-
-![Screenshot 2024-04-06 221542](https://github.com/cs411-alawini/sp24-cs411-team088-Chaseb/assets/90883274/f8012eb5-c6d1-4e2c-b7f7-883afcae42d4)
+![Screenshot 2024-04-06 222829](https://github.com/cs411-alawini/sp24-cs411-team088-Chaseb/assets/90883274/d13f7dc4-2151-4236-bd3c-f3bea350692b)

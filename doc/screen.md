@@ -1,2 +1,18 @@
+##show the average price for each car model within each company##
 
+SELECT
+  company.company_name,
+  CarModels.Model,
+  AVG(CAST(CarModels.price AS DECIMAL(10,2))) AS average_price
+FROM
+  CarModels
+JOIN
+  company ON CarModels.company_id = company.company_id
+GROUP BY
+  company.company_name, CarModels.Model
+ORDER BY
+  company.company_name, average_price DESC;
+
+
+  
 ![Screenshot 2024-04-06 214724](https://github.com/cs411-alawini/sp24-cs411-team088-Chaseb/assets/90883274/0a398cd6-342f-4afc-99bf-093832887dd9)

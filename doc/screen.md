@@ -36,3 +36,40 @@ WHERE
 ORDER BY
   Distance;
 ![Screenshot 2024-04-06 222829](https://github.com/cs411-alawini/sp24-cs411-team088-Chaseb/assets/90883274/d13f7dc4-2151-4236-bd3c-f3bea350692b)
+## For a specific car model list the milege from low to high with price
+SELECT
+  company.company_name AS Brand,
+  CarModels.Model,
+  CarModels.miles,
+  CarModels.price
+FROM
+  CarModels
+INNER JOIN company ON CarModels.company_id = company.company_id
+WHERE
+  CarModels.Model = 'Civic'
+  AND company.company_name = 'Honda'
+ORDER BY
+  CAST(CarModels.miles AS UNSIGNED) ASC, 
+  CAST(CarModels.price AS DECIMAL(10,2)) ASC; 
+![Screenshot 2024-04-06 223701](https://github.com/cs411-alawini/sp24-cs411-team088-Chaseb/assets/90883274/21bdd96a-41e6-4ed3-bf3f-978762287928)
+
+## For given carid if it has recall give details, if not say no
+SELECT
+  CarModels.CarID,
+  CASE
+    WHEN recall.recallID IS NOT NULL THEN 'Yes'
+    ELSE 'No'
+  END AS HasRecall,
+  recall.reason,
+  recall.report_received_date,
+  recall.consequence_summary,
+  recall.component
+FROM
+  CarModels
+LEFT JOIN recall ON CarModels.CarID = recall.CarID
+WHERE
+  CarModels.CarID = 1613; 
+
+
+  (since this is for on carid so only one data will show)
+![Screenshot 2024-04-06 224114](https://github.com/cs411-alawini/sp24-cs411-team088-Chaseb/assets/90883274/df1bf3a9-0433-4573-922e-41abce22f86c)

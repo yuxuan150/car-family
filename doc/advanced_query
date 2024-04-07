@@ -11,3 +11,4 @@ GROUP BY
   company.company_name, CarModels.Model
 ORDER BY
   company.company_name, average_price DESC;
+<img width="552" alt="Screenshot 2024-04-06 at 7 27 24 PM" src="https://github.com/cs411-alawini/sp24-cs411-team088-Chaseb/assets/90883274/e04a7b61-3904-440e-a172-46ed62bbb8ca">

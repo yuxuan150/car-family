@@ -1,4 +1,4 @@
-##show the average price for each car model within each company##
+## show the average price for each car model within each company
 
 SELECT
   company.company_name,

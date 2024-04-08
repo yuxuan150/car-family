@@ -11,6 +11,53 @@ For the UML, we will use five entities based on description: Users, CarModels, L
         · Description: Similar to Recall, user could find the company of the specific car through Carmodels. And it contains the company name and date of the company's creation.
     5. Location: This table would contain both user location and specific car location. User could buy the closest car which he looking for.
         · Description: This entity will contain longitude, latitude,  cityname. 
+    ##Users
+    ##FDs:
+    UserID -> UserName, Email, Password, LocationID
+    ##Minimal Basis:
+    UserID -> UserName;
+    UserID -> Email;
+    UserID -> Password;
+    UserID -> LocationID;
+    
+    ##Location:
+    ##FDs:
+    LocationID -> CityName, Latitude, Longitude
+    ##Minimal Basis:
+    CarID-> LocationID;
+    UserID->LocationID;
+    
+    ##CarModels:
+    ##FDs:
+    CarID -> Year, Color, Miles, Model, Price,LocationID,CompanyID
+    ##Minimal Basis:
+    CarID -> Year;
+    CarID -> Color;
+    CarID -> Miles;
+    CarID -> Model;
+    CarID -> Price;
+    CarID->LocationID;
+    CarID->CompanyID;
+    
+    ##Recall:
+    ##FDs:
+    RecallID -> ReportReceivedDate, Reason, ConsequenceSummary, Component, CarID
+    CarID->RecallID
+    ##Minimal Basis:
+    RecallID -> ReportReceivedDate;
+    RecallID -> Reason;
+    RecallID -> ConsequenceSummary;
+    RecallID -> Component;
+    RecallID -> CarID;
+    CarID->RecallID;
+    
+    ##Company:
+    ##FDs:
+    CompanyID -> CompanyName, CreatedDate
+    ##Minimal Basis:
+    CompanyID -> CompanyName;
+    CompanyID -> CreatedDate;
+
 
 
 # Logical Design (Relational Schema)

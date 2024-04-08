@@ -2,9 +2,9 @@
     For the ER, we will use five entities based on description: Users, CarModels, Location, Recall, and company. Here are the assumptions and cardinality descriptions
         1. Draw Entities: Start by drawing five rectangles, each representing one of the entities: User, Location, Company, Recall, and CarModels.
         2. Add Attributes: Inside each entity rectangle, list down all the attributes it has. Make sure to underline primary keys (PK) and denote foreign keys (FK) appropriately.
-        3. Draw Relationships: Connect the entities with lines to represent relationships. Add a diamond shape along the line if you want to clearly denote the relationship name or type.
+        3. Draw Relationships: Connect the entities with lines to represent relationships. Add a name between two entities so that the relationship make sense.
         4. Denote Cardinalities: At each end of the relationship lines, denote the cardinality (one-to-many, many-to-many) using the appropriate arrow (> for one side and nothing for many side).
-        5. Add Associative Entities if Needed: For the many-to-many relationship (CarModels to CarTeams), you might need to draw an associative entity or simply show that CarTeams has foreign keys referring back to CarModels.
+        
     For each table:
     1. Users: Represents the accounts on the platform.
         . Description: Each user can search for different car model. each user will contain userID, UserName, Email and password.

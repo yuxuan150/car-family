@@ -53,4 +53,7 @@ CREATE TABLE located (
     locationID INT UNIQUE NOT NULL,
     company_id INT UNIQUE NOT NULL,
     FOREIGN KEY (company_id) REFERENCES company(company_id),
-    FOREIGN KEY (location_id) REFERENCES location(locationID)
+    FOREIGN KEY (locationID) REFERENCES location(locationID)
+);
+
+

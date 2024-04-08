@@ -47,3 +47,10 @@ CREATE TABLE company (
     company_name VARCHAR(255) NOT NULL,
     created_date INT NOT NULL
 );
+-- located
+CREATE TABLE located (
+    located_id INT AUTO_INCREMENT PRIMARY KEY,
+    locationID INT UNIQUE NOT NULL,
+    company_id INT UNIQUE NOT NULL,
+    FOREIGN KEY (company_id) REFERENCES company(company_id),
+    FOREIGN KEY (location_id) REFERENCES location(locationID)

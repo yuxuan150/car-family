@@ -71,7 +71,7 @@
       3. Location(LocationID: INT[PK],cityname: VARCHAR(255), Latitude: DECIMAL, Longitude:DECIMAL)
       4. Recall(Recall ID: INT[PK],CarID: INT [FK to CarModels.CarID], Report received date:INT,Reason:VARCHAR(255), Consequence summary:VARCHAR(255), Component: VARCHAR(255))
       5. Company(CompanyID: INT [PK], created date: INT, company name: VARCHAR(255))
-      6. Located (
+      6. Located ( locatedid: INT[PK], locationID: INT[FK to Location.locationID],CompanyID:INT[FK to Company.CompanyID])
 
 # Normalization:
       · A relation R is in 3rd normal form if: whenever there is a nontrivial dependency A1,A2,...An->B for R, then {A1,A2,...,An} is a super-key for R, or B is part of a key.

@@ -1,5 +1,10 @@
-# Conceptual Design (UML)
-For the UML, we will use five entities based on description: Users, CarModels, Location, Recall, and company. Here are the assumptions and cardinality descriptions
+# Conceptual Design (ER)
+For the ER, we will use five entities based on description: Users, CarModels, Location, Recall, and company. Here are the assumptions and cardinality descriptions
+    1. Draw Entities: Start by drawing five rectangles, each representing one of the entities: User, Location, Company, Recall, and CarModels.
+    2. Add Attributes: Inside each entity rectangle, list down all the attributes it has. Make sure to underline primary keys (PK) and denote foreign keys (FK) appropriately.
+    3. Draw Relationships: Connect the entities with lines to represent relationships. Add a diamond shape along the line if you want to clearly denote the relationship name or type.
+    4. Denote Cardinalities: At each end of the relationship lines, denote the cardinality (one-to-many, many-to-many) using the appropriate arrow (> for one side and nothing for many side).
+    5. Add Associative Entities if Needed: For the many-to-many relationship (CarModels to CarTeams), you might need to draw an associative entity or simply show that CarTeams has foreign keys referring back to CarModels.
 
     1. Users: Represents the accounts on the platform.
         . Description: Each user can search for different car model. each user will contain userID, UserName, Email and password.
@@ -66,6 +71,7 @@ For the UML, we will use five entities based on description: Users, CarModels, L
       3. Location(LocationID: INT[PK],cityname: VARCHAR(255), Latitude: DECIMAL, Longitude:DECIMAL)
       4. Recall(Recall ID: INT[PK],CarID: INT [FK to CarModels.CarID], Report received date:INT,Reason:VARCHAR(255), Consequence summary:VARCHAR(255), Component: VARCHAR(255))
       5. Company(CompanyID: INT [PK], created date: INT, company name: VARCHAR(255))
+      6. Located (
 
 # Normalization:
       · A relation R is in 3rd normal form if: whenever there is a nontrivial dependency A1,A2,...An->B for R, then {A1,A2,...,An} is a super-key for R, or B is part of a key.
@@ -87,11 +93,12 @@ For the UML, we will use five entities based on description: Users, CarModels, L
         · Attributes: CompanyID (PK), Created date, Company Name
 
 # Relationships:
-    · Users to CarModels: Many-to-Many (A user can search multiple cars, and a car could be searched by multiple users)
+    · CarModels to User: Many-to-One (A user can buy multiple cars, but a car could be bought by one user)
     · Users to Location: Many-to-One (A user can only have one location, but a location could contain multiple users)
     · CarModels to Location: Many-to-One (A car can only have one location, but a location could contain multiple cars)
     · CarModels to Recall: Many-to-One (Same model of car may recall at the same time with same reason )
     · CarModels to Company: Many-to-One (A car could only belong to one company, but a company could have different model of car )
+    · Company to Location: ONe-to-One (A company can only have one headquarters which located in a city, and it is unique) 
     
 
 # Steps to Create the UML:

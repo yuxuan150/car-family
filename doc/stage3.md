@@ -99,6 +99,54 @@
       company.company_name, CarModels.Model
     ORDER BY
       company.company_name, average_price DESC;
-## Second Advanced Query:
-## Third Advanced Query:
-## Fouth Advanced Query:
+## Second Advanced Query:A specific user can search a specific car model and brand by distance. close to far
+    SELECT
+    company.company_name AS Brand,
+      CarModels.Model,
+      car_location.city_name AS CarLocation,
+      SQRT(POW(user_location.latitude - car_location.latitude, 2) + POW(user_location.longitude - car_location.longitude, 2)) AS Distance
+    FROM
+      users
+    INNER JOIN location AS user_location ON users.location_id = user_location.locationID
+    INNER JOIN CarModels ON CarModels.location_id IS NOT NULL
+    INNER JOIN location AS car_location ON CarModels.location_id = car_location.locationID
+    INNER JOIN company ON CarModels.company_id = company.company_id
+    WHERE
+      users.UserID = 1000
+      AND company.company_name = 'Honda'
+      AND CarModels.Model = 'Civic' 
+    ORDER BY
+      Distance;
+
+## Third Advanced Query:For a specific car model list the milege from low to high with price
+    SELECT
+      company.company_name AS Brand,
+      CarModels.Model,
+      CarModels.miles,
+      CarModels.price
+    FROM
+      CarModels
+    INNER JOIN company ON CarModels.company_id = company.company_id
+    WHERE
+      CarModels.Model = 'Civic'
+      AND company.company_name = 'Honda'
+    ORDER BY
+      CAST(CarModels.miles AS UNSIGNED) ASC, 
+      CAST(CarModels.price AS DECIMAL(10,2)) ASC; 
+## Fourth Advanced Query:For given carid if it has recall give details, if not say no
+    SELECT
+      CarModels.CarID,
+      CASE
+        WHEN recall.recallID IS NOT NULL THEN 'Yes'
+        ELSE 'No'
+      END AS HasRecall,
+      recall.reason,
+      recall.report_received_date,
+      recall.consequence_summary,
+      recall.component
+    FROM
+      CarModels
+    LEFT JOIN recall ON CarModels.CarID = recall.CarID
+    WHERE
+      CarModels.CarID = 1613; 
+

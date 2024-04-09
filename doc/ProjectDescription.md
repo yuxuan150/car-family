@@ -22,11 +22,9 @@ We will also use MySQL to search the data from the database and SQL to establish
 
 
 ## Usefulness
-The website we build aims for potential customers who are interested in purchasing cars but they may not know what to choose. In this case this website allows them to have access to information about the car they like immediately. Also if they do not have any brand preferences, this website can find the car that is most suitable for them based on their preferences(Ex: FWD/RWD). Beside this, users can also build their own car teams. Also they can check the sales information before to have a better sense of the price of such a car. The simple feature might be showing information of the specific car they choose, while the complex feature may be filtering based on users’ demand, assembling car teams.
+The website we build aims for potential customers who are interested in purchasing cars but they may not know what to choose. In this case this website allows them to have access to information about the car they like immediately. Also if they do not have any brand preferences, this website can find the car that is most suitable for them based on their preferences(Ex: price above $30000). Beside this, users can also calculation the distance between user and specific car which they looking for.
 
-There are similar websites such as Cars, Carfax, Edmunds. But our website is different because our website could assembling your dream car team, and it could also play against other players online which adds lots of fun. By choosing different cars as part of your team, user could know more information about the car which he choose, as a result, it is a better way to help user to choose his favourite car as well. 
-
-
+There are similar websites such as Cars, Carfax, Edmunds. But our website is different because our website could show whether this car has been recalled or not, and it show which component and reason does this car been recall. We put user safety first. And I believe safety is the number one factor when users consider whether to buy this car.
 ## Realness
 We already have two datasets, which include  Name, Model ,Company,Year of Purchase,KM's driven,Price,Fuel type,Registration city,Transmission,Condition means car is used or new,Seller Location,Features of cars Images of selling car. pricesold, yearsold,mileage, make, model,trim, engine,year,zipcode, id.have  the data is from kaggle.com, and it is a CSV file. 
 which are 10.9MB and 13.1MB.
@@ -54,15 +52,17 @@ https://www.kaggle.com/datasets/rkiattisak/sports-car-prices-dataset
 Functionality Description:
 Our website have the following services:
 CarModels: users can get access to a certain type of car’s information by typing the name of the car or by selecting the filter. In this case, the user can have a comprehensive understanding of each cars’ performance. Within this service, we also provide direct comparison between two cars allowing users to make direct comparisons.
-recall: we provide detailed information about the specific type of car which has been recalled. This allows the user to search for the recall id that they are looking for. For each car for sale, we also include the reason and components for such specific cars, so that user could know more about this specific car.
-car history: we also provide the historical records of the deal for different types of cars which allow the users to know whether it has an accident or not, and also include all other records of this specific car. The user can type in the vin number for checking the information.
+
+recall: we provide detailed information about the specific type of car which has been recalled. This allows the user to search for the recall id that they are looking for. For each car for sale, we also include the reason and components for such specific cars, so that user could know more about this specific car.Once it has recalled, it would show all the recall information about this car.
+
+car company: we also provide the which car belongs to which company, and it also show the location of this company. User could click on specific car, and it would show which company it belongs to. Lots of different cars may belongs to one big company.
+
+position: It contains user's location, car's location, and company's location.
 
 User: In this mode, the user would create their own username, passwords, our website will insert the information to our database, the user can change their username or passwords and these will also update to database.
-Car model: This will contain the database shown to the user about information of different cars. User can type the car name in search bar and our database systems will read and found out the car they want.
-Car history: This contain the specific cars history. Which include all the information about this car. The user can also type in the vin they want to see about the history and we will read this and filter out the data for users.
-Recall: This will contain the information of the cars that has been recalled. The user can type the recall ID in order to see whether it has been recalled or not. Once it has recorded, it would show all the recall information about this car.
-CarTeam: This is a creative part which user can form their own car team. The user can choose the car they like and form a car team, which will be inserted in our database, our database will read the engine and power and provide the rate of such team.
-CarTeams: allows users to build up their own teams
+
+
+
 
 
 ## UI Mockup

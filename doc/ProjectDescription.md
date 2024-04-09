@@ -70,7 +70,7 @@ CarTeams: allows users to build up their own teams
 Login Page is displayed when the user first visits the website. If user have a account just sign in, if not he need to sing up.
 Once the user enters his login credentials and is authenticated, the landing page is displayed. The user can then search for players  in the search bar. 
 
-![Screenshot 2024-02-26 222707](https://github.com/cs411-alawini/sp24-cs411-team088-Chaseb/assets/90883274/c3120406-74a8-4d81-8c3b-68e2dde79fda)
+![3f874191376936496e18434e0dc73d3](https://github.com/cs411-alawini/sp24-cs411-team088-Chaseb/assets/90883274/d4157de1-b964-49df-b065-a86a014ea555)
 
 Once the user login successfully, this user can click Sales to get the sales record, click Listings he can get the current listing cars in the market, click CarTeams he can get information about teams he is building.
 

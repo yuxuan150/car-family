@@ -87,7 +87,7 @@
 <img width="294" alt="Screenshot 2024-04-08 at 1 02 41 PM" src="https://github.com/cs411-alawini/sp24-cs411-team088-Chaseb/assets/90883274/7034bb77-bab2-4b2a-8623-0642874a2855">
 
 
-## First Advanced Query:show the average price for each car model within each company
+## 1. Advanced Query:show the average price for each car model within each company
     SELECT
       company.company_name,
       CarModels.Model,
@@ -101,7 +101,7 @@
     ORDER BY
       company.company_name, average_price DESC;
 ![Screenshot 2024-04-06 214724](https://github.com/cs411-alawini/sp24-cs411-team088-Chaseb/assets/90883274/0a398cd6-342f-4afc-99bf-093832887dd9)
-## Second Advanced Query:A specific user can search a specific car model and brand by distance. close to far
+## 2. Advanced Query:A specific user can search a specific car model and brand by distance. close to far
     SELECT
     company.company_name AS Brand,
       CarModels.Model,
@@ -121,7 +121,7 @@
       Distance;
 ![Screenshot 2024-04-06 222829](https://github.com/cs411-alawini/sp24-cs411-team088-Chaseb/assets/90883274/d13f7dc4-2151-4236-bd3c-f3bea350692b)
 
-## Third Advanced Query:For a specific car model list the milege from low to high with price
+## 3. Advanced Query:For a specific car model list the milege from low to high with price
     SELECT
       company.company_name AS Brand,
       CarModels.Model,
@@ -137,7 +137,7 @@
       CAST(CarModels.miles AS UNSIGNED) ASC, 
       CAST(CarModels.price AS DECIMAL(10,2)) ASC; 
 ![Screenshot 2024-04-06 223701](https://github.com/cs411-alawini/sp24-cs411-team088-Chaseb/assets/90883274/21bdd96a-41e6-4ed3-bf3f-978762287928)
-## Fourth Advanced Query:For given carid if it has recall give details, if not say no
+## 4. Advanced Query:For given carid if it has recall give details, if not say no
     SELECT
       CarModels.CarID,
       CASE

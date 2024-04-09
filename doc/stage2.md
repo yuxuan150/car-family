@@ -1,7 +1,7 @@
 # Conceptual Design (ER)
     For the ER, we will use five entities based on description: Users, CarModels, Location, Recall, and company. Here are the assumptions and cardinality descriptions
         1. Draw Entities: Start by drawing five rectangles, each representing one of the entities: User, Location, Company, Recall, and CarModels.
-        2. Add Attributes: Inside each entity rectangle, list down all the attributes it has. Make sure to underline primary keys (PK) and denote foreign keys (FK) appropriately.
+        2. Add Attributes: outside of each entity rectangle, list down all the attributes it has. Make sure to underline primary keys (PK) appropriately.
         3. Draw Relationships: Connect the entities with lines to represent relationships. Add a name between two entities so that the relationship make sense.
         4. Denote Cardinalities: At each end of the relationship lines, denote the cardinality (one-to-many, many-to-many) using the appropriate arrow (> for one side and nothing for many side).
         

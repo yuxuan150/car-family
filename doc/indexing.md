@@ -50,8 +50,7 @@ SELECT CarModels.CarID, CASE WHEN recall.recallID IS NOT NULL THEN 'Yes' ELSE 'N
 
 1)	CREATE INDEX idx_recall_carid ON recall(CarID);
 
-   
-2)	<img width="468" alt="image" src="https://github.com/cs411-alawini/sp24-cs411-team088-Chaseb/assets/90883274/0446a2d8-9f73-4116-bc47-f6e503a46cc6">
+	<img width="468" alt="image" src="https://github.com/cs411-alawini/sp24-cs411-team088-Chaseb/assets/90883274/0446a2d8-9f73-4116-bc47-f6e503a46cc6">
 
 The cost is not change at all, so no need for indexing.
 

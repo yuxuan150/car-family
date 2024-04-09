@@ -10,12 +10,12 @@
 - [UI Mockup](#ui-mockup)
 - [Work Distribution](#work-distribution)
 ## Project Summary
-We aim to build a website which allows users to check for detailed information of the car so that they search(Ex: Model, Model, MPG, Fuel Type). Users could check the specific history of car he looking for, which to check whether it has accident or not. What is more, this website will also include the recent sales information on used cars so that the users can know about the price of the car they like. We will also include a recall model which could check the reason, components, and brand of recalled vehicle. Car family also provides for checking the history of a given vehicle, such as whether there has been an accident. For interaction, the user can login with their account, find the car they like to know by searching names or choose the constraints.
+We aim to build a website which allows users to check for detailed information of the car so that it could aim users to buy the favourite car which they want. So the detail information would include Model, year, color price and miles. We will also include a recall model which could check the reason, components, and brand of recalled vehicle. Users could check the specific car he looking for, to check whether it has been recall or not, so it is consider to the safety. What is more, this website will also include position information on specific car, user  and car company. User would know what is the distance between the specific car he is looking for and himself, so that it helps user to make consideration about whether to buy this car or not.  Car family also provides company table so that user could know which company a car belongs to, and the site shows the company's location.  
 ## Description
-Car Family is a web platform to help users quickly sort and find the cars that people are looking for, it could also help people determine whether they should sell or buy a used car based on price. The project involves designing, sorting, combining, and filtering the database so that it helps the user to find their best car. Our platform would include the information of brand, Model, MPG, Year of car,KM's driventrain,Price,Fuel type,Transmission.  Based on all the information above, user could determine whether they want to buy or sell the car or not.
+Car Family is a web platform to help users quickly sort and find the cars that people are looking for, it could also help people determine whether they should  buy a used car based on price. The project involves designing, sorting, combining, and filtering the database so that it helps the user to find their best car. Our platform would include the information of brand, Model, color, Year of car,Price.  Based on all the information above, user could determine whether they want to buy or sell the car or not.
 
-Car family also provide recall and car history functionality. As for recall, user could directly type the recall Id to see whether the specific car has been recalled or not. Based on this information, user could know the car they choose whether it has design flaws or not.The recall include reason, report reveived date, recallID, component, consequence summary. If the car has been recalled, it could also show the reason and components they recall. As for car history, use could easily by typing the vin for specific car they looking for, and car family would show whether this car has accident or not, and also some really data of this car. So the car history will include vin,brand,model,year,sate,color,title_status,mileage. As a result, both recall and car history would help user to determine buy the car.
-Also, based on the Car Family platform, users could also select some of their favorite car models to build up their fantasy car teams. Moreover, CarFamily also provides used car information. It would help users to determine when and where to buy/sell a car that is more cost-sufficient. The information of this part would be pricesold, yearsold,mileage, make, model,trim, engine,year,zipcode, id. Based on these, users would know which car is more value-maintaining, and which car is not.   
+Car family also provide recall and car history functionality. As for recall, user could directly type the recall Id to see whether the specific car has been recalled or not. Based on this information, user could know the car they choose whether it has design flaws or not.The recall include reason, report reveived date, recallID, component, consequence summary. If the car has been recalled, it could also show the reason and components they recall. As for car campany,user could know which company a car belongs to, and the site shows the company's location. As a result, both recall and company would help user to determine buy the car.
+Also, based on the Car Family platform, users could also search for the car location, and it would tell you how far does user from this car. It would help user to determine the distance between user and this car.
 
 We will also use MySQL to search the data from the database and SQL to establish the database. We will also use HTML5, CSS, Javascript, React.js to design our frontend webpage. 
 
@@ -40,10 +40,11 @@ https://www.kaggle.com/datasets/rkiattisak/sports-car-prices-dataset
 
 |   Entity    |   Attributes                 |  
 | ----------- | -----------------------------| 
-| Users       |    UserID (PK), Username, Email, password, location_id |
-| CarModels   | CarID (PK), Model, year, miles, color, price, company_id, location_id|
-| recall      |   recall ID(PK), reason, report_received_date, consequence_summary, component,CarID |
-| company | company_id (PK), company_name, created_date|
+| Users       |    UserID (PK),LocationID(FK), Username, Email, Password |
+| CarModels   | CarID (PK), CompanyID(FK), LocationID(FK), Model, Year, color, Miles, Price|
+| recall      |   Recall ID (PK), CarID(FK), Report received date, Reason, Consequence summary,Component |
+| company | CompanyID (PK), Created date, Company Name|
+| location | LocationID (PK), cityname, latitude,longitude|
 
 
 

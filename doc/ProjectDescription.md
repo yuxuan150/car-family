@@ -40,11 +40,10 @@ https://www.kaggle.com/datasets/rkiattisak/sports-car-prices-dataset
 
 |   Entity    |   Attributes                 |  
 | ----------- | -----------------------------| 
-| Users       |    UserID (PK), Username, Email, Password |
-| CarModels   | CarID (PK), Brand, Model, year, transmission, price, KM's Drivetrain, FuelType, MPG|
-| recall      |   recall ID(PK), reason, report received date, component, consequence summary |
-| car history | vin (PK), brand, model, year, state, color, title_status, mileage |
-
+| Users       |    UserID (PK), Username, Email, password, location_id |
+| CarModels   | CarID (PK), Model, year, miles, color, price, company_id, location_id|
+| recall      |   recall ID(PK), reason, report_received_date, consequence_summary, component,CarID |
+| company | company_id (PK), company_name, created_date|
 
 
 

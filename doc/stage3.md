@@ -84,3 +84,21 @@
 ## located rows
 
 <img width="294" alt="Screenshot 2024-04-08 at 1 02 41 PM" src="https://github.com/cs411-alawini/sp24-cs411-team088-Chaseb/assets/90883274/7034bb77-bab2-4b2a-8623-0642874a2855">
+
+
+## First Advanced Query:show the average price for each car model within each company
+    SELECT
+      company.company_name,
+      CarModels.Model,
+      AVG(CAST(CarModels.price AS DECIMAL(10,2))) AS average_price
+    FROM
+      CarModels
+    JOIN
+      company ON CarModels.company_id = company.company_id
+    GROUP BY
+      company.company_name, CarModels.Model
+    ORDER BY
+      company.company_name, average_price DESC;
+## Second Advanced Query:
+## Third Advanced Query:
+## Fouth Advanced Query:

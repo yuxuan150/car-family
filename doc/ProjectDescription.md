@@ -67,18 +67,17 @@ User: In this mode, the user would create their own username, passwords, our web
 
 ## UI Mockup
 
-Login Page is displayed when the user first visits the website. If user have a account just sign in, if not he need to sing up.
-Once the user enters his login credentials and is authenticated, the landing page is displayed. The user can then search for players  in the search bar. 
+Login Page is displayed when the user first visits the website. If user have a account just sign in, if not he need to sing up. 
 
 ![3f874191376936496e18434e0dc73d3](https://github.com/cs411-alawini/sp24-cs411-team088-Chaseb/assets/90883274/d4157de1-b964-49df-b065-a86a014ea555)
 
-Once the user login successfully, this user can click Sales to get the sales record, click Listings he can get the current listing cars in the market, click CarTeams he can get information about teams he is building.
+Once the user login successfully, this user can seach a specific car by using model,year,miles.....
 
+![Screenshot 2024-04-08 213345](https://github.com/cs411-alawini/sp24-cs411-team088-Chaseb/assets/90883274/15256437-feb7-4a90-a622-8f594c85b51a)
 
-![Screenshot 2024-02-26 220425](https://github.com/cs411-alawini/sp24-cs411-team088-Chaseb/assets/90883274/4886272f-edd5-42ba-9a88-024331345ad3)
+In this page, uesr can checking if their car has recall. If have, provide recall details.
 
-In this page, uesr can manage their car team by adding cars or deleting cars.
-![Screenshot 2024-02-26 221846](https://github.com/cs411-alawini/sp24-cs411-team088-Chaseb/assets/90883274/d70f0ceb-0dcd-41c2-9d48-1bbc2af1a7a1)
+![Screenshot 2024-04-08 212800](https://github.com/cs411-alawini/sp24-cs411-team088-Chaseb/assets/90883274/d1a58ce2-083b-4e6c-b1a7-8063839c9599)
 
 | Member | Task |
 | --- | --- |

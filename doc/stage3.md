@@ -59,4 +59,4 @@
         FOREIGN KEY (company_id) REFERENCES company(company_id),
         FOREIGN KEY (locationID) REFERENCES location(locationID)
     );
-    
+# Screenshots of Database & Tables:

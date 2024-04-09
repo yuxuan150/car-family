@@ -26,13 +26,13 @@ The website we build aims for potential customers who are interested in purchasi
 
 There are similar websites such as Cars, Carfax, Edmunds. But our website is different because our website could show whether this car has been recalled or not, and it show which component and reason does this car been recall. We put user safety first. And I believe safety is the number one factor when users consider whether to buy this car.
 ## Realness
-We already have two datasets, which include  Name, Model ,Company,Year of Purchase,KM's driven,Price,Fuel type,Registration city,Transmission,Condition means car is used or new,Seller Location,Features of cars Images of selling car. pricesold, yearsold,mileage, make, model,trim, engine,year,zipcode, id.have  the data is from kaggle.com, and it is a CSV file. 
+We use 5 databases include uesrs,carmodels,recall,company and location. All of these datasets are from kaggle.com, and it is a CSV file. These datasets have information about uses' location,name,email,password. Include CarModels' carid,companyid,locationid,model,year,color,miles,price. Include recalls' Recallid, carid, Report received date, Reason, Consequence summary,Component. Include company CompanyID, Created date, Company Name. Include location: LocationID, cityname, latitude,longitude.
 which are 10.9MB and 13.1MB.
 Data link:
 https://www.kaggle.com/datasets/abdullahkhanuet22/olx-cars-dataset
 https://www.kaggle.com/datasets/tsaustin/us-used-car-sales-data
 https://www.kaggle.com/datasets/andreinovikov/used-cars-dataset
-https://www.kaggle.com/datasets/rkiattisak/sports-car-prices-dataset
+
 
 
 

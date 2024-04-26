@@ -87,39 +87,46 @@
 <img width="294" alt="Screenshot 2024-04-08 at 1 02 41 PM" src="https://github.com/cs411-alawini/sp24-cs411-team088-Chaseb/assets/90883274/7034bb77-bab2-4b2a-8623-0642874a2855">
 
 
-## 1. Advanced Query:show the average price for each car model within each company
-    SELECT
-      company.company_name,
-      CarModels.Model,
-      AVG(CAST(CarModels.price AS DECIMAL(10,2))) AS average_price
-    FROM
-      CarModels
-    JOIN
-      company ON CarModels.company_id = company.company_id
-    GROUP BY
-      company.company_name, CarModels.Model
-    ORDER BY
-      company.company_name, average_price DESC;
-![Screenshot 2024-04-06 214724](https://github.com/cs411-alawini/sp24-cs411-team088-Chaseb/assets/90883274/0a398cd6-342f-4afc-99bf-093832887dd9)
-## 2. Advanced Query:A specific user can search a specific car model and brand by distance. close to far
-    SELECT
-    company.company_name AS Brand,
-      CarModels.Model,
-      car_location.city_name AS CarLocation,
-      SQRT(POW(user_location.latitude - car_location.latitude, 2) + POW(user_location.longitude - car_location.longitude, 2)) AS Distance
-    FROM
-      users
-    INNER JOIN location AS user_location ON users.location_id = user_location.locationID
-    INNER JOIN CarModels ON CarModels.location_id IS NOT NULL
-    INNER JOIN location AS car_location ON CarModels.location_id = car_location.locationID
-    INNER JOIN company ON CarModels.company_id = company.company_id
-    WHERE
-      users.UserID = 1000
-      AND company.company_name = 'Honda'
-      AND CarModels.Model = 'Civic' 
-    ORDER BY
-      Distance;
-![Screenshot 2024-04-06 222829](https://github.com/cs411-alawini/sp24-cs411-team088-Chaseb/assets/90883274/d13f7dc4-2151-4236-bd3c-f3bea350692b)
+## 1. This query combines aggregation, complex joins, and subqueries that are not trivially replaced by joins.The function in your query calculates the average price of car models by company and model, and it uses several advanced SQL techniques including subqueries and aggregation with GROUP BY. Here’s a breakdown of what the query does and how it achieves its results: we use Subqueries That Cannot Be Easily Replaced by a Join and Aggregation via GROUP BY
+
+	SELECT c.company_name, cm.Model, AVG(cm.price) AS average_price
+	FROM company c
+	JOIN (
+  	  SELECT company_id, Model, price
+	    FROM CarModels
+	    WHERE price > (SELECT AVG(price) FROM CarModels WHERE year > 2010)
+	) cm ON c.company_id = cm.company_id
+	GROUP BY c.company_name, cm.Model
+	HAVING AVG(cm.price) > (SELECT AVG(price) FROM CarModels)
+	ORDER BY average_price DESC;
+![Screenshot 2024-04-25 214920](https://github.com/cs411-alawini/sp24-cs411-team088-Chaseb/assets/90883274/0b98bbf0-833f-4191-9145-4a898ccdb26b)
+
+## 2.This query is designed to retrieve the average price of car models from a specific brand that have had safety-related recalls. It only includes models whose average price is less than the overall average price of all car models in the CarModels table. This could be useful for consumers looking for safer car options below the average price or for market analysis by a company to compare the pricing of its recalled models against the broader market this would use Join multiple relations, Aggregation via GROUP BY, Subqueries that cannot be easily replaced by a join
+ 	  SELECT 
+	    c.company_name AS Brand, 
+ 	   cm.Model, 
+	    AVG(CAST(cm.price AS DECIMAL(10,2))) AS AveragePrice
+	FROM 
+	    CarModels cm 
+	INNER JOIN 
+	    company c ON cm.company_id = c.company_id
+	WHERE 
+	    cm.CarID IN (
+	        SELECT CarID 
+ 	       FROM recall 
+  	      WHERE reason LIKE '%engine fault%'
+ 	   )
+	GROUP BY 
+	    c.company_name, cm.Model
+	HAVING 
+	    AVG(CAST(cm.price AS DECIMAL(10,2))) < (
+	        SELECT AVG(CAST(price AS DECIMAL(10,2))) 
+	        FROM CarModels
+	    )
+	ORDER BY 
+	    AveragePrice ASC;
+![Screenshot 2024-04-25 215220](https://github.com/cs411-alawini/sp24-cs411-team088-Chaseb/assets/90883274/cc24cb7c-b8fc-4ac9-aef4-0b61a25be185)
+
 
 ## 3. Advanced Query:For a specific car model list the milege from low to high with price
     SELECT

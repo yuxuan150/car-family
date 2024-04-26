@@ -167,40 +167,70 @@
 # Part2:
 
 ## Executing EXPLAIN ANALYZE on the first advance query:
-## 1.	For the query show the average price for each car model within each company
-EXPLAIN ANALYZ
-SELECT company.company_name, CarModels.Model, AVG(CAST(CarModels.price AS DECIMAL(10,2))) AS average_price 
-FROM CarModels 
-JOIN company ON CarModels.company_id = company.company_id 
-GROUP BY company.company_name, CarModels.Model 
-ORDER BY company.company_name, average_price DESC;
+## 1.	
+	EXPLAIN ANALYZE
+	SELECT c.company_name, cm.Model, AVG(cm.price) AS average_price
+	FROM company c
+	JOIN (
+  	  SELECT company_id, Model, price
+	    FROM CarModels
+ 	   WHERE price > (SELECT AVG(price) FROM CarModels WHERE year > 2010)
+	) cm ON c.company_id = cm.company_id
+	GROUP BY c.company_name, cm.Model
+	HAVING AVG(cm.price) > (SELECT AVG(price) FROM CarModels)
+	ORDER BY average_price DESC;
 
 
- <img width="468" alt="image" src="https://github.com/cs411-alawini/sp24-cs411-team088-Chaseb/assets/90883274/7434e487-1a65-4027-bf0e-a1f49faee655">
+![Screenshot 2024-04-25 215430](https://github.com/cs411-alawini/sp24-cs411-team088-Chaseb/assets/90883274/cd3c62db-ec67-423b-a0b9-b4dc8f42177d)
 
-1)	For indexing, firstly I tried using CREATE INDEX idx_car_models_model ON CarModels(Model); then the output is:                      
+1)	 CREATE INDEX idx_car_models_price ON CarModels(price); then the output is:                      
+![Screenshot 2024-04-25 220319](https://github.com/cs411-alawini/sp24-cs411-team088-Chaseb/assets/90883274/9ef13e38-5016-4b78-b55a-f5260e4c1e4d)
+cost not changed;
+2) CREATE INDEX idx_car_models_year ON CarModels(year); then the output is:
+![Screenshot 2024-04-25 220455](https://github.com/cs411-alawini/sp24-cs411-team088-Chaseb/assets/90883274/b058499c-4046-420f-86d6-87c52d27dd8e)
+3) CREATE INDEX idx_company_name ON company(company_name(255));then the output is:
+![Screenshot 2024-04-25 220930](https://github.com/cs411-alawini/sp24-cs411-team088-Chaseb/assets/90883274/0530b104-fce7-483e-ba1c-c162476690c6)
+4) CREATE INDEX idx_car_models_model ON CarModels(Model);then the output is:
+![Screenshot 2024-04-25 221139](https://github.com/cs411-alawini/sp24-cs411-team088-Chaseb/assets/90883274/53f4d510-1455-4fc5-9e5e-16c20e514e2e)
 
-<img width="468" alt="image" src="https://github.com/cs411-alawini/sp24-cs411-team088-Chaseb/assets/90883274/8aa66bc3-7a43-4a64-b022-ba1b948dd2e1">
+## Executing EXPLAIN ANALYZE on the second advance query:
+## 2.
+	EXPLAIN ANALYZE
+ 	  SELECT 
+	    c.company_name AS Brand, 
+ 	   cm.Model, 
+	    AVG(CAST(cm.price AS DECIMAL(10,2))) AS AveragePrice
+	FROM 
+	    CarModels cm 
+	INNER JOIN 
+	    company c ON cm.company_id = c.company_id
+	WHERE 
+	    cm.CarID IN (
+	        SELECT CarID 
+ 	       FROM recall 
+  	      WHERE reason LIKE '%engine fault%'
+ 	   )
+	GROUP BY 
+	    c.company_name, cm.Model
+	HAVING 
+	    AVG(CAST(cm.price AS DECIMAL(10,2))) < (
+	        SELECT AVG(CAST(price AS DECIMAL(10,2))) 
+	        FROM CarModels
+	    )
+	ORDER BY 
+	    AveragePrice ASC;
 
 
-Although the time is decrement, but the cost still not change.
-
-## 2.	For query that a specific user can search a specific car model and brand by distance. close to far.
-EXPLAIN ANALYZ SELECT company.company_name AS Brand, CarModels.Model, car_location.city_name AS CarLocation, SQRT(POW(user_location.latitude - car_location.latitude, 2) + POW(user_location.longitude - car_location.longitude, 2)) AS Distance FROM users INNER JOIN location AS user_location ON users.location_id = user_location.locationID INNER JOIN CarModels ON CarModels.location_id IS NOT NULL INNER JOIN location AS car_location ON CarModels.location_id = car_location.locationID INNER JOIN company ON CarModels.company_id = company.company_id WHERE users.UserID = 1000 AND company.company_name = 'Honda' AND CarModels.Model = 'Civic' ORDER BY Distance;
-
- 
- <img width="468" alt="image" src="https://github.com/cs411-alawini/sp24-cs411-team088-Chaseb/assets/90883274/144d9a96-84ee-4681-beb9-aacefe7fb368">
+ ![Screenshot 2024-04-25 222250](https://github.com/cs411-alawini/sp24-cs411-team088-Chaseb/assets/90883274/3b1ade6e-36f5-43b1-b712-2161a635c0f8)
                                                                      
-1)	For indexing, firstly I try : CREATE INDEX idx_company_name ON company(company_name); 
-The output looks good, cost decrement a lot. Then I will try use another indexing.
-<img width="468" alt="image" src="https://github.com/cs411-alawini/sp24-cs411-team088-Chaseb/assets/90883274/1cd585f6-a3eb-4dd8-ae86-cbb938ade6d1">
+1)	CREATE INDEX idx_recall_reason ON recall(reason(255));
+![Screenshot 2024-04-25 222737](https://github.com/cs411-alawini/sp24-cs411-team088-Chaseb/assets/90883274/dffd87c9-6432-4c10-84f9-f4568d411793)
 
-       2) CREATE INDEX idx_car_models_model ON CarModels(Model);
-  
-          
- <img width="468" alt="image" src="https://github.com/cs411-alawini/sp24-cs411-team088-Chaseb/assets/90883274/f7bb87c2-db35-41a8-895f-a74a8ade363e">
+2) CREATE INDEX idx_car_models_company_id ON CarModels(company_id);
+![Screenshot 2024-04-25 222904](https://github.com/cs411-alawini/sp24-cs411-team088-Chaseb/assets/90883274/6fad4aa2-fc1f-48db-bd3d-317286f82673)
+3）CREATE INDEX idx_car_models_model ON CarModels(Model);
+![Screenshot 2024-04-25 223216](https://github.com/cs411-alawini/sp24-cs411-team088-Chaseb/assets/90883274/5a373fff-4e05-4001-a61e-c23b0cb721b8)
 
-Cost decrement more, looks good, then we should keep these two indexes.
 ## 3.	For query that : For a specific car model list the milege from low to high with price:
 EXPLAIN ANALYZE  
 SELECT company.company_name AS Brand, CarModels.Model, CarModels.miles, CarModels.price FROM CarModels INNER JOIN company ON CarModels.company_id = company.company_id WHERE CarModels.Model = 'Civic' AND company.company_name = 'Honda' ORDER BY CAST(CarModels.miles AS UNSIGNED) ASC, CAST(CarModels.price AS DECIMAL(10,2)) ASC;  

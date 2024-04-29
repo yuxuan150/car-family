@@ -128,40 +128,53 @@
 ![Screenshot 2024-04-25 215220](https://github.com/cs411-alawini/sp24-cs411-team088-Chaseb/assets/90883274/cc24cb7c-b8fc-4ac9-aef4-0b61a25be185)
 
 
-## 3. Advanced Query:For a specific car model list the milege from low to high with price
-    SELECT
-      company.company_name AS Brand,
-      CarModels.Model,
-      CarModels.miles,
-      CarModels.price
-    FROM
-      CarModels
-    INNER JOIN company ON CarModels.company_id = company.company_id
-    WHERE
-      CarModels.Model = 'Civic'
-      AND company.company_name = 'Honda'
-    ORDER BY
-      CAST(CarModels.miles AS UNSIGNED) ASC, 
-      CAST(CarModels.price AS DECIMAL(10,2)) ASC; 
-![Screenshot 2024-04-06 223701](https://github.com/cs411-alawini/sp24-cs411-team088-Chaseb/assets/90883274/21bdd96a-41e6-4ed3-bf3f-978762287928)
-## 4. Advanced Query:For given carid if it has recall give details, if not say no
-    SELECT
-      CarModels.CarID,
-      CASE
-        WHEN recall.recallID IS NOT NULL THEN 'Yes'
-        ELSE 'No'
-      END AS HasRecall,
-      recall.reason,
-      recall.report_received_date,
-      recall.consequence_summary,
-      recall.component
-    FROM
-      CarModels
-    LEFT JOIN recall ON CarModels.CarID = recall.CarID
-    WHERE
-      CarModels.CarID = 1613; 
-        (since this is for on carid so only one data will show)
-![Screenshot 2024-04-06 224114](https://github.com/cs411-alawini/sp24-cs411-team088-Chaseb/assets/90883274/df1bf3a9-0433-4573-922e-41abce22f86c)
+## 3.This SQL query provides a user with a list of available car models from various brands within 200 kilometers, detailing the average price and total availability of each model, sorted by proximity.*/it use join multiple relation and aggregation via group by
+   SELECT 
+    c.company_name AS Brand,
+    cm.Model,
+    ROUND(AVG(CAST(cm.price AS DECIMAL(10,2))), 2) AS AveragePrice,
+    COUNT(cm.CarID) AS TotalAvailable,
+    ROUND(SQRT(
+        POW(l.latitude - -10, 2) + 
+        POW(l.longitude - -10, 2)
+    ), 2) AS Distance
+FROM 
+    CarModels cm
+JOIN 
+    company c ON cm.company_id = c.company_id
+JOIN 
+    location l ON cm.location_id = l.locationID
+WHERE 
+    SQRT(
+        POW(l.latitude - -10, 2) + 
+        POW(l.longitude - -10, 2)
+    ) <= 200
+GROUP BY 
+    c.company_name, cm.Model, Distance
+ORDER BY 
+    Distance ASC;
+![Screenshot 2024-04-28 202148](https://github.com/cs411-alawini/sp24-cs411-team088-Chaseb/assets/90883274/b60df475-f3e8-472e-bc16-949e7d3cbd53)
+## 4. The functionality of the updated SQL query is to provide a report that lists each car model, the associated car manufacturer (brand), the total number of unique recalls for each model, and a count of how many times recalls have been reported in each city. This allows stakeholders to understand the frequency and geographical distribution of recalls for specific car models across different brands, aiding in targeted recall management and regional service planning. Join multiple relations and Aggregation via GROUP BY
+
+   SELECT 
+    c.company_name AS Brand,
+    cm.Model,
+    COUNT(DISTINCT r.recallID) AS TotalRecalls,
+    l.city_name AS City,
+    COUNT(DISTINCT l.city_name) AS CityRecallCount
+FROM 
+    CarModels cm
+JOIN 
+    recall r ON cm.CarID = r.CarID
+JOIN 
+    company c ON cm.company_id = c.company_id
+JOIN 
+    location l ON cm.location_id = l.locationID
+GROUP BY 
+    c.company_name, cm.Model, l.city_name
+ORDER BY 
+    TotalRecalls DESC, CityRecallCount DESC;
+![Screenshot 2024-04-28 202318](https://github.com/cs411-alawini/sp24-cs411-team088-Chaseb/assets/90883274/e5095aed-ef53-422c-a744-14bee3f159d2)
 
 
 # Part2:

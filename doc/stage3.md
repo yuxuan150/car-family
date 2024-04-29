@@ -206,6 +206,9 @@ cost not changed;
 4) CREATE INDEX idx_car_models_model ON CarModels(Model);then the output is:
 ![Screenshot 2024-04-25 221139](https://github.com/cs411-alawini/sp24-cs411-team088-Chaseb/assets/90883274/53f4d510-1455-4fc5-9e5e-16c20e514e2e)
 
+This is the line chart of cost changes when you creat different indexs. A,B,C,D,E,F means different indexing. A is the original sql aka no indexing created. By vieweing the chart we will find that when we creat index car_models the cost increased; Others index are not changed with original graph.
+![Screenshot 2024-04-28 212428](https://github.com/cs411-alawini/sp24-cs411-team088-Chaseb/assets/90883274/45f08277-85a2-47e4-9a3c-02ecbc3a7f30)
+
 ## Executing EXPLAIN ANALYZE on the second advance query:
 ## 2.
 	EXPLAIN ANALYZE

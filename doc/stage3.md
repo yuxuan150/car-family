@@ -290,7 +290,11 @@ ORDER BY
 4)	CREATE INDEX idx_company_name ON company(company_name);
    	![Screenshot 2024-04-28 203233](https://github.com/cs411-alawini/sp24-cs411-team088-Chaseb/assets/90883274/814ec14b-41a7-47ed-ba59-13824eee6ac9)
 5)	CREATE INDEX idx_car_models_model ON CarModels(Model);
-   	![Screenshot 2024-04-28 203324](https://github.com/cs411-alawini/sp24-cs411-team088-Chaseb/assets/90883274/777f3c29-f612-46d3-8799-ea335bafa64f)
+   	![Screenshot 2024-04-28 203324](https://github.com/cs411-alawini/sp24-cs411-team088-Chaseb/assets/90883274/777f3c29-f612-46d3-8799-ea335bafa64f
+
+By using four indexing, cost not change at all. So no need to use
+![Screenshot 2024-04-28 214128](https://github.com/cs411-alawini/sp24-cs411-team088-Chaseb/assets/90883274/3f8370a8-37e3-4c5a-8255-17dcc5ef4ab0)
+
 ## 4. 
 EXPLAIN ANALYZE SELECT 
     c.company_name AS Brand,

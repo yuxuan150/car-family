@@ -206,7 +206,7 @@ cost not changed;
 4) CREATE INDEX idx_car_models_model ON CarModels(Model);then the output is:
 ![Screenshot 2024-04-25 221139](https://github.com/cs411-alawini/sp24-cs411-team088-Chaseb/assets/90883274/53f4d510-1455-4fc5-9e5e-16c20e514e2e)
 
-This is the line chart of cost changes when you creat different indexs. A,B,C,D,E,F means different indexing. A is the original sql aka no indexing created. By vieweing the chart we will find that when we creat index car_models the cost increased; Others index are not changed with original graph.
+This is the line chart of cost changes when you creat different indexs. A,B,C,D,E,F means different indexing. A is the original sql aka no indexing created.0,1,2,3....8 is different cost in one explain analyze output. By vieweing the chart we will find that when we creat index car_models the cost increased; Others index are not changed with original graph.
 ![Screenshot 2024-04-28 212428](https://github.com/cs411-alawini/sp24-cs411-team088-Chaseb/assets/90883274/45f08277-85a2-47e4-9a3c-02ecbc3a7f30)
 
 ## Executing EXPLAIN ANALYZE on the second advance query:
@@ -247,6 +247,9 @@ This is the line chart of cost changes when you creat different indexs. A,B,C,D,
 3）CREATE INDEX idx_car_models_model ON CarModels(Model);
 ![Screenshot 2024-04-25 223216](https://github.com/cs411-alawini/sp24-cs411-team088-Chaseb/assets/90883274/5a373fff-4e05-4001-a61e-c23b0cb721b8)
 
+The cost is not chaned at all, so no need to index for this sql.
+![Screenshot 2024-04-28 213355](https://github.com/cs411-alawini/sp24-cs411-team088-Chaseb/assets/90883274/324faba1-61f4-4050-b447-ad7b5468c74a)
+
 ## 3.	
 EXPLAIN ANALYZE SELECT 
     c.company_name AS Brand,
@@ -280,10 +283,12 @@ ORDER BY
 1)	CREATE INDEX idx_location_latitude ON location(latitude);
 	 ![Screenshot 2024-04-28 202905](https://github.com/cs411-alawini/sp24-cs411-team088-Chaseb/assets/90883274/65ebd24e-166e-4a6a-afe0-6072016f9531)
 2)      CREATE INDEX idx_location_longitude ON location(longitude);
-       ![Screenshot 2024-04-28 202958](https://github.com/cs411-alawini/sp24-cs411-team088-Chaseb/assets/90883274/00fbea69-161a-4311-89fe-a186cbd5333e)
-3)	CREATE INDEX idx_company_name ON company(company_name);
+   
+       ![Screenshot 2024-04-28 202958](https://github.com/cs411-alawini/sp24-cs411-team088-Chaseb/assets/90883274/00fbea69-161a-4311-89fe-a186cbd5333e
+       
+4)	CREATE INDEX idx_company_name ON company(company_name);
    	![Screenshot 2024-04-28 203233](https://github.com/cs411-alawini/sp24-cs411-team088-Chaseb/assets/90883274/814ec14b-41a7-47ed-ba59-13824eee6ac9)
-4)	CREATE INDEX idx_car_models_model ON CarModels(Model);
+5)	CREATE INDEX idx_car_models_model ON CarModels(Model);
    	![Screenshot 2024-04-28 203324](https://github.com/cs411-alawini/sp24-cs411-team088-Chaseb/assets/90883274/777f3c29-f612-46d3-8799-ea335bafa64f)
 ## 4. 
 EXPLAIN ANALYZE SELECT 

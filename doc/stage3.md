@@ -329,3 +329,5 @@ ORDER BY
 3) 	CREATE INDEX idx_location_city_name ON location(city_name);
 ![Screenshot 2024-04-28 203639](https://github.com/cs411-alawini/sp24-cs411-team088-Chaseb/assets/90883274/f1877f21-b9c4-46e3-b0b1-f168ba38d516)
 
+Cost not change at all, so no need to do index
+![Screenshot 2024-04-28 214601](https://github.com/cs411-alawini/sp24-cs411-team088-Chaseb/assets/90883274/e7a5ba31-8a36-476e-b595-6f4aa923a15a)

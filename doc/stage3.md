@@ -346,3 +346,8 @@ ORDER BY
 
 Cost not change at all, so no need to do index
 ![Screenshot 2024-04-28 214601](https://github.com/cs411-alawini/sp24-cs411-team088-Chaseb/assets/90883274/e7a5ba31-8a36-476e-b595-6f4aa923a15a)
+
+ the costs do not change because:
+The idx_company_name index does not impact cost, likely because the join operation between CarModels and company is already efficient, and the database engine may use other criteria to perform this operation.
+Creating the idx_car_models_model index shows no cost change, which implies that the model attribute of CarModels is not the limiting factor in query performance, and the execution plan of the database does not utilize this index to speed up the operation.
+Lastly, the idx_location_city_name index does not reduce the cost. This could be due to the city_name field in location already being efficiently handled in the grouping or because the added index does not significantly improve the execution for the grouping and sorting of the query results.

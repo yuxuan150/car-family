@@ -252,8 +252,13 @@ From the chart, we notice that index idx_car_models_year ON CarModels(year) like
 3）CREATE INDEX idx_car_models_model ON CarModels(Model);
 ![Screenshot 2024-04-25 223216](https://github.com/cs411-alawini/sp24-cs411-team088-Chaseb/assets/90883274/5a373fff-4e05-4001-a61e-c23b0cb721b8)
 
-The cost is not chaned at all, so no need to index for this sql.
+The cost is not changed at all, so no need to index for this sql.
 ![Screenshot 2024-04-28 213355](https://github.com/cs411-alawini/sp24-cs411-team088-Chaseb/assets/90883274/324faba1-61f4-4050-b447-ad7b5468c74a)
+
+For the three indexes created (idx_recall_reason, idx_car_models_company_id, and idx_car_models_model), their costs remain unchanged because:
+The idx_recall_reason index is not reducing the cost since the query's filter on reason LIKE '%engine fault%' may not efficiently utilize the index due to the use of wildcard characters at the beginning of the string, which generally prevents index use.
+The idx_car_models_company_id index does not affect the cost, indicating the database's query optimizer may already be efficiently joining the tables without needing this index, possibly due to a low number of rows or an already efficient scan method.
+The idx_car_models_model index shows no cost change because the aggregation in the query is done on the price column, and the grouping by Model does not benefit from an index on the Model column if the optimizer assesses that other parts of the execution plan are more costly or if the cardinality is low.
 
 ## 3.	
 EXPLAIN ANALYZE SELECT 

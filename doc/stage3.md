@@ -305,10 +305,12 @@ ORDER BY
 
 By using four indexing, cost not change at all. So no need to use
 ![Screenshot 2024-04-28 214128](https://github.com/cs411-alawini/sp24-cs411-team088-Chaseb/assets/90883274/3f8370a8-37e3-4c5a-8255-17dcc5ef4ab0)
+
 The index idx_location_latitude on the latitude column does not reduce the cost because the query's filtering on latitude uses a mathematical expression SQRT(POW(l.latitude - -10, 2) + POW(l.longitude - -10, 2)) <= 200, which may not efficiently utilize an index on latitude alone.
 Similarly, the index idx_location_longitude on the longitude column does not affect the cost because the query's filtering on longitude also uses a mathematical expression SQRT(POW(l.latitude - -10, 2) + POW(l.longitude - -10, 2)) <= 200, which may not efficiently utilize an index on longitude alone.
 The index idx_company_name on the company_name column does not change the cost because the query's join with the company table likely already uses an efficient join strategy, and filtering on company_name may not benefit significantly from indexing.
 Lastly, the index idx_car_models_model on the Model column does not affect the cost because the grouping and ordering by Model may not benefit significantly from indexing due to the nature of the query and the optimizer's assessment of the most efficient execution plan.
+
 ## 4. 
 EXPLAIN ANALYZE SELECT 
     c.company_name AS Brand,

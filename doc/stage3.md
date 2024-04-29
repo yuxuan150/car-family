@@ -284,7 +284,8 @@ ORDER BY
 	 ![Screenshot 2024-04-28 202905](https://github.com/cs411-alawini/sp24-cs411-team088-Chaseb/assets/90883274/65ebd24e-166e-4a6a-afe0-6072016f9531)
 2)      CREATE INDEX idx_location_longitude ON location(longitude);
    
-       ![Screenshot 2024-04-28 202958](https://github.com/cs411-alawini/sp24-cs411-team088-Chaseb/assets/90883274/00fbea69-161a-4311-89fe-a186cbd5333e
+    ![Screenshot 2024-04-28 202958](https://github.com/cs411-alawini/sp24-cs411-team088-Chaseb/assets/90883274/6c67a4eb-e17f-4627-84e4-9d8d1ab7a37a)
+
        
 4)	CREATE INDEX idx_company_name ON company(company_name);
    	![Screenshot 2024-04-28 203233](https://github.com/cs411-alawini/sp24-cs411-team088-Chaseb/assets/90883274/814ec14b-41a7-47ed-ba59-13824eee6ac9)

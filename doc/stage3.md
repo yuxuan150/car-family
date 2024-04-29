@@ -86,6 +86,9 @@
 
 <img width="294" alt="Screenshot 2024-04-08 at 1 02 41 PM" src="https://github.com/cs411-alawini/sp24-cs411-team088-Chaseb/assets/90883274/7034bb77-bab2-4b2a-8623-0642874a2855">
 
+## Connection
+
+![Screenshot 2024-04-28 224611](https://github.com/cs411-alawini/sp24-cs411-team088-Chaseb/assets/90883274/b9f3c548-f151-4f21-a3e1-71d2f13e96a4)
 
 ## 1. This query combines aggregation, complex joins, and subqueries that are not trivially replaced by joins.The function in your query calculates the average price of car models by company and model, and it uses several advanced SQL techniques including subqueries and aggregation with GROUP BY. Here’s a breakdown of what the query does and how it achieves its results: we use Subqueries That Cannot Be Easily Replaced by a Join and Aggregation via GROUP BY
 

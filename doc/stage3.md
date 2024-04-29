@@ -212,6 +212,8 @@ cost not changed;
 This is the line chart of cost changes when you creat different indexs. A,B,C,D,E,F means different indexing. A is the original sql aka no indexing created.0,1,2,3....8 is different cost in one explain analyze output. By vieweing the chart we will find that when we creat index car_models the cost increased; Others index are not changed with original graph.
 ![Screenshot 2024-04-28 212428](https://github.com/cs411-alawini/sp24-cs411-team088-Chaseb/assets/90883274/45f08277-85a2-47e4-9a3c-02ecbc3a7f30)
 
+From the chart, we notice that index idx_car_models_year ON CarModels(year) likely has a higher cost than the original query because the query's filtering and aggregation on the price column do not benefit from indexing on the year column, while for rest four of indexes,  the costs remain equivalent to the original because the indexes likely aren't being utilized in the query's execution plan possibly due to the optimizer estimates that using the index would not lead to a more efficient retrieval strategy.
+
 ## Executing EXPLAIN ANALYZE on the second advance query:
 ## 2.
 	EXPLAIN ANALYZE

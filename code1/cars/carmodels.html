@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="/assets/lib/layui/css/layui.css" />
+  <link rel="stylesheet" href="/assets/css/cars/list.css" />
+</head>
+
+<body>
+
+
+
+
+  <!-- card area -->
+  <div class="layui-card">
+    <div class="layui-card-header">carmodels</div>
+    <div class="layui-card-body">
+      <!-- filter area -->
+      <form class="layui-form" id="form-search">
+
+
+        <div class="layui-form-item layui-inline">
+          <input name="company_name" value="" class="layui-input" placeholder="company name" />
+        </div>
+
+        <!-- <form class="layui-form" id="form-search"> -->
+
+        <div class="layui-form-item layui-inline">
+          <input name="model_name" value="" class="layui-input" placeholder="model name" />
+        </div>
+        <div class="layui-form-item  layui-inline" style="width:120px;">
+          <select name="city_select" lay-verify="" lay-search>
+            <option value="">select City</option>
+          </select>
+        </div>
+        <div class="layui-form-item layui-inline" style="width:100px;">
+          <select name="no_recall" lay-verify="required" lay-search>
+            <option value="0">noRecall</option>
+            <option value="1">recall</option>
+            <option value="2">all</option>
+          </select>
+        </div>
+
+        <div class="layui-form-item layui-inline" style="width:130px;">
+          <select lay-search name="distince">
+            <option value="">filterDist</option>
+            <option value="10">
+              10 KM
+            </option>
+
+            <option value="20">
+              20 KM
+            </option>
+
+            <option value="30">
+              30 KM
+            </option>
+
+            <option value="40">
+              40 KM
+            </option>
+
+            <option value="50">
+              50 KM
+            </option>
+
+            <option value="75">
+              75 KM
+            </option>
+
+            <option value="100">
+              100 KM
+            </option>
+
+            <option value="150">
+              150 KM
+            </option>
+
+            <option value="200">
+              200 KM
+            </option>
+
+            <option value="250">
+              250 KM
+            </option>
+
+            <option value="500">
+              500 KM
+            </option>
+            <option value="5000">
+              5000 KM
+            </option>
+            <option value="all">
+              All KM
+            </option>
+            <!---->
+          </select>
+
+        </div>
+
+        <div class="layui-form-item layui-inline" style="width:150px;">
+          <select lay-search name="order_by">
+            <option value="">SortBy</option>
+            <option value="AA.carid desc">Best Match</option>
+            <option value="AA.price asc">Lowest price</option>
+            <option value="AA.price desc">Highest price</option>
+            <option value="AA.miles asc">Lowest mileage</option>
+            <option value="AA.miles desc">Highest mileage</option>
+            <option value="AA.distance asc ">Closest first</option>
+            <option value="AA.distance desc">Farthest first</option>
+            <option value="AA.carid desc">Newest first</option>
+            <option value="AA.carid asc">Oldest first</option>
+          </select>
+
+        </div>
+
+        <div class="layui-form-item layui-inline">
+          <!-- <button class="layui-btn" lay-submit lay-filter="formDemo">filter</button>
+          <button id="add" class="layui-btn" style="margin-left: 5px">
+            <i class="layui-icon">&#xe608;</i> sellCar
+          </button> -->
+          <button class="layui-btn " lay-submit lay-filter="search" style="margin-left: 5px"><i
+              class="layui-icon">&#xe615;</i>filter
+          </button>
+
+
+          <button id="add_sale_car" class="layui-btn " style="margin-left: 5px">
+            <i class="layui-icon">&#xe608;</i> sellCar
+          </button>
+        </div>
+      </form>
+      <!-- list area -->
+      <table class="layui-table">
+        <colgroup>
+          <col />
+
+        </colgroup>
+        <thead>
+
+        </thead>
+        <tbody></tbody>
+      </table>
+      <!-- paging area -->
+      <div id="pageBox"></div>
+    </div>
+  </div>
+
+
+
+
+
+  <!-- Template engine for list data -->
+  <script type="text/html" id="tpl-titles">
+      <tr>
+        {{each titles}}
+        <th>{{$value}}</th>
+        {{/each}}
+        <th>action</th>
+      </tr>
+    </script>
+  <script type="text/html" id="tpl-table">
+      {{each data as item index}}
+      <tr>
+        {{each titles as title}}
+        
+      
+        <td>
+          {{if title=='recall'}}
+             <a href="/cars/recalls.html?id={{item[title]}}"> 
+             
+              {{  item[title] ? 'yes' : '' }}
+            
+            </a>
+             
+          {{else}}
+             {{item[title]}}
+         {{/if}}
+        </td>
+        {{/each}}
+        <td>
+          <button type="button" class="layui-btn layui-btn-xs btn-buy layui-btn-danger" data-id="{{item['CarID']}}">buy the car</button>
+          <!-- <button type="button" class="layui-btn layui-btn-danger layui-btn-xs btn-delete" data-id="{{item['locationID']}}">delete</button>   -->
+        </td>
+      </tr>
+      {{/each}}
+    </script>
+
+
+  <!-- Import third-party JS plug-ins -->
+  <script src="/assets/lib/layui/layui.js"></script>
+  <script src="/assets/lib/jquery.js"></script>
+  <script src="/assets/js/baseAPI.js"></script>
+  <script src="/assets/lib/template-web.js"></script>
+  <!-- Import your own JS script -->
+  <script src="/assets/js/cars/carmodels.js"></script>
+  <script src="/assets/js/common.js"></script>
+</body>
+
+
+<!--formEditOrUpdate-->
+<div class="layui-row" id="open_div" style="display:none;">
+  <form id="add_eidt_form" class="layui-form" action="" style="margin-top: 20px;text-align:center;">
+    <!--Hidden field action, used to distinguish between adding and editing actions-->
+    <input type="hidden" name="action" id="action">
+    <!--Hidden field id, used to provide the primary key required for editing-->
+    <input type="hidden" name="flag" id="flag">
+    <!--Hidden field request_type, used to provide the request method:get,post,put-->
+    <input type="hidden" name="request_type" id="request_type">
+    <input type="hidden" name="carid" id="carid">
+    <div class="layui-form-item" style="display: table;width: 96%">
+      <div class="layui-form-item" style="display: table-cell;width: 50%">
+        <label class="layui-form-label">ModelName</label>
+        <div class="layui-input-block">
+          <input type="text" name="model" placeholder="input  carModel" autocomplete="off" class="layui-input"
+            lay-verify="required">
+        </div>
+      </div>
+      <div class="layui-form-item" style="display: table-cell;width: 50%">
+        <label class="layui-form-label">company</label>
+        <div class="layui-input-block">
+          <select name="company_id" lay-verify="required" lay-search>
+            <option value="">select Company</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="layui-form-item" style="display: table;width: 96%">
+      <div class="layui-form-item" style="display: table-cell;width: 50%">
+        <label class="layui-form-label">color</label>
+        <div class="layui-input-block">
+          <input type="text" name="color" placeholder="input car color"  autocomplete="off" class="layui-input"
+            lay-verify="required">
+        </div>
+      </div>
+      <div class="layui-form-item" style="display: table-cell;width: 50%">
+        <label class="layui-form-label">Price</label>
+        <div class="layui-input-block">
+          <input type="text" name="price" placeholder="input price you sale"   autocomplete="off" class="layui-input"
+            lay-verify="required|num" >
+        </div>
+      </div>
+    </div>
+    <div class="layui-form-item" style="display: table;width: 96%">
+      <div class="layui-form-item" style="display: table-cell;width: 50%">
+        <label class="layui-form-label">miles</label>
+        <div class="layui-input-block">
+          <input type="text" name="miles" placeholder="input miles of car"   autocomplete="off" class="layui-input"
+            lay-verify="required">
+        </div>
+      </div>
+      <div class="layui-form-item" style="display: table-cell;width: 50%">
+        <label class="layui-form-label">year</label>
+        <div class="layui-input-block">
+          <input type="text" name="year" placeholder="input year eg:2024" lay-verify="required|number|field_len4"
+            autocomplete="off" class="layui-input"  >
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="layui-form-item" style="display: table;width: 96%">
+    
+      <div class="layui-form-item" style="display: table-cell;width: 50%">
+        <label class="layui-form-label">city</label>
+        <div class="layui-input-block">
+          <select name="location_id" lay-verify="required" lay-search>
+            <option value="">select City</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+    <div class="layui-form-item" >
+      <div class="layui-btn-group">
+        <button type="button" class="layui-btn" lay-submit="" lay-filter="add_submit">submit</button>
+        <button type="reset" class="layui-btn layui-btn-primary">reset</button>
+      </div>
+    </div>
+
+
+
+
+  </form>
+</div>
+
+</html>

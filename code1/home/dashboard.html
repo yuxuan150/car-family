@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>dashboard</title>
+  <link rel="stylesheet" href="../../assets/lib/bootstrap.css" />
+  <link rel="stylesheet" href="../../assets/lib/main.css" />
+  <script src="../../assets/lib/jquery.js"></script>
+  <script type="text/javascript" src="../../assets/lib/echarts.min.js"></script>
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="row spannel_list">
+      <div class="col-sm-3 col-xs-6">
+        <div class="spannel">
+          <em id="iUsers">10015</em>
+          <b>users</b>
+        </div>
+      </div>
+      <div class="col-sm-3 col-xs-6">
+        <div class="spannel scolor01">
+          <em id="iRecall">123</em>
+          <b>recalls</b>
+        </div>
+      </div>
+      <div class="col-sm-3 col-xs-6">
+        <div class="spannel scolor02">
+          <em id="iSelling">35</em>
+          <b>selling</b>
+        </div>
+      </div>
+      <div class="col-sm-3 col-xs-6">
+        <div class="spannel scolor03">
+          <em id="iOrders">123</em>
+          <b>orders</b>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid">
+    <div class="row curve-pie">
+      <div class="col-lg-8 col-md-8">
+        <div style="height:400px;" class="column_pannel" id="column_show"></div>
+      </div>
+      <div class="col-lg-4 col-md-4">
+        <div class="gragh_pannel" style="height:400px;"  id="pie_show"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid">
+    <div class="gragh_pannel" id="curve_show"></div>
+
+  </div>
+
+  <!-- Import third-party JS plug-ins -->
+  <script src="/assets/lib/layui/layui.js"></script>
+  <script src="/assets/lib/jquery.js"></script>
+  <script src="/assets/js/baseAPI.js"></script>
+  <script src="/assets/js/common.js"></script>
+  <script src="/assets/lib/template-web.js"></script>
+  <!-- Import your own JS script -->
+  <script src="/assets/js/dashboard.js"></script>
+
+   
+</body>
+
+</html>

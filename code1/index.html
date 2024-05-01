@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>home</title>
+    <!-- Import the style sheet of layui -->
+    <link rel="stylesheet" href="/assets/lib/layui/css/layui.css" />
+    <!-- Import third-party icon library -->
+    <link rel="stylesheet" href="/assets/fonts/iconfont.css" />
+    <!-- Import your own style sheet -->
+    <link rel="stylesheet" href="/assets/css/index.css" />
+</head>
+
+<body class="layui-layout-body">
+    <div class="layui-layout layui-layout-admin">
+        <div class="layui-header">
+            <div class="layui-logo">
+                <img src="/assets/images/logo.png" alt="" />
+            </div>
+            <!-- Head area (can cooperate with layui's existing horizontal navigation) -->
+            <ul class="layui-nav layui-layout-right">
+                <li class="layui-nav-item">
+                    <a href="javascript:;" class="userinfo">
+                        <img src="http://t.cn/RCzsdCq" class="layui-nav-img" />
+                        <span class="text-avatar">A</span> userCenter
+                    </a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="/user/user_info.html" target="fm">base</a></dd>
+                        <dd><a href="/user/user_avatar.html" target="fm">changeAvatar</a></dd>
+                        <dd><a href="/user/user_pwd.html" target="fm">resetPassword</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a href="javascript:;" id="btnLogout"><span class="iconfont icon-tuichu"></span>exit</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="layui-side layui-bg-black">
+            <div class="layui-side-scroll">
+                <div class="userinfo">
+                    <img src="http://t.cn/RCzsdCq" class="layui-nav-img" />
+                    <span class="text-avatar">A</span>
+                    <span id="welcome">welcome ***</span>
+                </div>
+                <!-- Left navigation area (can cooperate with layui's existing vertical navigation) -->
+                <ul class="layui-nav layui-nav-tree" lay-shrink="all">
+                    <li class="layui-nav-item layui-this">
+                        <a href="/home/dashboard.html" target="fm"><span class="iconfont icon-home"></span>homepage</a>
+                    </li>
+
+
+                    <li class="layui-nav-item">
+                        <a class="" href="javascript:;"><span class="iconfont icon-16"></span>carsADMIN</a>
+                        <dl class="layui-nav-child">
+                         
+                            <dd>
+                                <a href="/cars/carmodels.html" target="fm"><i
+                                        class="layui-icon layui-icon-app"></i>carsSelling</a>
+                            </dd>
+                            <dd>
+                                <a href="/cars/recalls.html" target="fm"><i
+                                        class="layui-icon layui-icon-app"></i>recalls</a>
+                            </dd>
+                            <dd>
+                                <a href="/cars/online_trade.html" target="fm"><i
+                                        class="layui-icon layui-icon-app"></i>tradeRecord</a>
+                            </dd>
+                        </dl>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a href="javascript:;"><span class="iconfont icon-user"></span>userCenter</a>
+                        <dl class="layui-nav-child">
+                            <dd>
+                                <a href="/user/user_info.html" target="fm"><i
+                                        class="layui-icon layui-icon-app"></i>base</a>
+                            </dd>
+                            <dd>
+                                <a href="/user/user_avatar.html" target="fm"><i
+                                        class="layui-icon layui-icon-app"></i>changeAvatar</a>
+                            </dd>
+                            <dd>
+                                <a href="/user/user_pwd.html" target="fm"><i
+                                        class="layui-icon layui-icon-app"></i>resetPassowrd</a>
+                            </dd>
+                        </dl>
+                    </li>
+
+                    <li class="layui-nav-item auth_admin"  style="display:none">
+                        <a href="javascript:;"><span class="iconfont icon-16"></span>systemManager</a>
+                        <dl class="layui-nav-child">
+                            <dd>
+                                <a href="/systems/locations.html" target="fm"><i
+                                        class="layui-icon layui-icon-app"></i>locations</a>
+                            </dd>
+                            <dd>
+                                <a href="/systems/users.html" target="fm"><i
+                                        class="layui-icon layui-icon-app"></i>userAdmin</a>
+                            </dd>
+                            <dd>
+                                <a href="/systems/logs.html" target="fm"><i
+                                        class="layui-icon layui-icon-app"></i>userLogs</a>
+                            </dd>
+                        </dl>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="layui-body">
+            <!-- Content body area -->
+            <iframe name="fm" src="/home/dashboard.html" frameborder="0"></iframe>
+        </div>
+
+        <div class="layui-footer">
+            <!-- Bottom fixed area -->
+            carsADMIN
+        </div>
+    </div>
+    <!-- import layui JS file -->
+    <script src="/assets/lib/layui/layui.js"></script>
+    <!-- import jQuery -->
+    <script src="/assets/lib/jquery.js"></script>
+    <!-- Import your own package baseAPI -->
+    <script src="/assets/js/baseAPI.js"></script>
+    <!-- Import your own js file -->
+    <script src="/assets/js/index.js"></script>
+</body>
+
+</html>

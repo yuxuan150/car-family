@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="/assets/lib/layui/css/layui.css" />
+  <link rel="stylesheet" href="/assets/css/cars/list.css" />
+</head>
+
+<body>
+  <!-- card area -->
+  <div class="layui-card">
+    <div class="layui-card-header">recalls</div>
+    <div class="layui-card-body">
+      <!-- filter area -->
+      <form class="layui-form" id="form-search">
+
+        <div class="layui-form-item layui-inline">
+          <label class="layui-form-label">model:</label>
+          <div class="layui-input-block">
+            <input name="model_name_main" value="" class="layui-input" placeholder="model name" />
+          </div>
+        </div>
+
+        <div class="layui-form-item layui-inline">
+          <label class="layui-form-label">company:</label>
+          <div class="layui-input-block">
+            <input name="company_name" value="" class="layui-input" placeholder="company name" />
+          </div>
+        </div>
+
+
+
+
+
+
+        <div class="layui-form-item layui-inline">
+          <label class="layui-form-label">reason:</label>
+          <div class="layui-input-block">
+            <input name="reason" value="" class="layui-input" placeholder="recall reason" />
+          </div>
+        </div>
+
+        <!-- <div class="layui-form-item layui-inline">
+          <select name="state">
+            <option value="">allcolore</option>
+            <option value="red">red</option>
+            <option value="blue">blue</option>
+          </select>
+        </div> -->
+        <div class="layui-form-item layui-inline">
+          <button class="layui-btn" lay-submit lay-filter="formDemo">filter</button>
+          <button id="addRecall" class="layui-btn" style="margin-left: 15px">
+            <i class="layui-icon">&#xe608;</i> addRecall
+          </button>
+        </div>
+      </form>
+      <!-- list area -->
+      <table class="layui-table">
+        <colgroup>
+          <col width="10" />
+          <col width="150" />
+          <col width="180" />
+          <col width="150" />
+          <col width="150" />
+        </colgroup>
+        <thead class="main_head">
+
+        </thead>
+        <tbody class="main_body"></tbody>
+      </table>
+      <!-- paging area -->
+      <div id="pageBox"></div>
+    </div>
+  </div>
+
+  <!-- Template engine for list data-->
+  <script type="text/html" id="tpl-titles">
+      <tr>
+       
+        {{each titles}}
+        <th>{{$value}}</th>
+        {{/each}}
+      
+      </tr>
+    </script>
+
+  <script type="text/html" id="tpl-table">
+      {{each data as item index}}
+      <tr>
+        
+        {{each titles as title}}
+        <td>{{item[title]}}</td>
+        {{/each}}
+   
+      </tr>
+      {{/each}}
+    </script>
+
+
+
+  <!-- Import third-party JS plug-ins -->
+  <script src="/assets/lib/layui/layui.js"></script>
+  <script src="/assets/lib/jquery.js"></script>
+  <script src="/assets/js/baseAPI.js"></script>
+  <script src="/assets/lib/template-web.js"></script>
+  <script src="/assets/js/common.js"></script>
+  <!-- Import your own JS script -->
+  <script src="/assets/js/cars/recalls.js"></script>
+</body>
+
+
+
+<!--formEditOrUpdate-->
+<div class="layui-row" id="open_div" style="display:none;">
+  <form id="add_eidt_form" class="layui-form" action="" style="margin-top: 20px;align:center;">
+    <!--Hidden field action, used to distinguish between adding and editing actions-->
+    <input type="hidden" name="action" id="action">
+    <!--Hidden field id, used to provide the primary key required for editing-->
+    <input type="hidden" name="recall_id" id="recall_id">
+    <!--Hidden field request_type, used to provide the request method:get,post,put-->
+    <input type="hidden" name="request_type" id="request_type">
+    <input type="hidden" name="carid" id="carid">
+    <div class="layui-form-item" style="display: table;width: 96%">
+      <div class="layui-form-item" style="display: table-cell;width: 50%">
+        <label class="layui-form-label">ModelName</label>
+        <div class="layui-input-block">
+          <input type="text" name="model_name" style="color:silver" placeholder="select a carModel" readonly="true"
+            autocomplete="off" class="layui-input" lay-verify="required">
+        </div>
+      </div>
+      <div class="layui-form-item" style="display: table-cell;width: 50%">
+        <label class="layui-form-label">company</label>
+        <div class="layui-input-block">
+          <input type="text" name="model_company" style="color:silver" disabled="true" class="layui-input">
+        </div>
+      </div>
+    </div>
+    <div class="layui-form-item" style="display: table;width: 96%">
+      <div class="layui-form-item" style="display: table-cell;width: 50%">
+        <label class="layui-form-label">color</label>
+        <div class="layui-input-block">
+          <input type="text" name="model_color" disabled="true" style="color:silver" readonly="true" autocomplete="off"
+            class="layui-input" lay-verify="required">
+        </div>
+      </div>
+      <div class="layui-form-item" style="display: table-cell;width: 50%">
+        <label class="layui-form-label">component</label>
+        <div class="layui-input-block">
+          <input type="text" name="component" placeholder="input the car component" autocomplete="off"
+            class="layui-input" lay-verify="required">
+        </div>
+      </div>
+    </div>
+
+
+    <!-- reason	report_received_date	consequence_summary	component -->
+    <div class="layui-form-item" style="display: table;width: 96%">
+      <div class="layui-form-item" style="display: table-cell;width: 50%">
+        <label class="layui-form-label">reportDate</label>
+        <div class="layui-input-block">
+          <input type="text" name="report_received_date" placeholder="input year eg:2024" autocomplete="off"
+            class="layui-input" lay-verify="required|number|field_len4">
+        </div>
+      </div>
+
+      <div class="layui-form-item" style="display: table-cell;width: 50%">
+        <label class="layui-form-label">Summary</label>
+        <div class="layui-input-block">
+          <input type="text" name="consequence_summary" placeholder="input consequence_summary" autocomplete="off"
+            class="layui-input" lay-verify="required">
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="layui-form-item" style="display: table;width: 96%">
+      <label class="layui-form-label">reason</label>
+      <div class="layui-input-block">
+        <input type="text" name="reason" placeholder="input the reason about recall" autocomplete="off"
+          class="layui-input" lay-verify="required">
+      </div>
+    </div>
+
+    <div class="layui-form-item" style="margin-left: 40%">
+      <div class="layui-btn-group">
+        <button type="button" class="layui-btn" lay-submit="" lay-filter="add_submit">submit</button>
+        <button type="reset" class="layui-btn layui-btn-primary">reset</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<!--formEditOrUpdate End-->
+
+<!-- carModelModal modal box -->
+<div id="carModelModal" style="display: none;">
+  <div class="layui-form">
+    <div class="layui-form-item">
+      <label class="layui-form-label">search:</label>
+
+      <div class="layui-input-inline">
+        <input type="text" id="car_model_name_q" placeholder="input model name" class="layui-input">
+
+      </div>
+      <button type="button" class="layui-btn layui-btn-sm" id="search-car-model-btn">search</button>
+    </div>
+
+    <table class="layui-table" id="car-model-table" lay-filter="car-model-table">
+      <!-- <colgroup>
+        <col width="60" />
+        <col width="150" />
+        <col width="180" />
+        <col width="150" />
+        <col width="150" />
+      </colgroup>
+      <thead class="car_model_head">
+
+      </thead>
+      <tbody class="car_model_body"></tbody> -->
+    </table>
+
+    <div id="pageCarModelBox"></div>
+  </div>
+
+  <div class="layui-form-item">
+    <button type="button" class="layui-btn layui-btn-sm" id="confirm-carModel-btn" style="width:80px;"> ok </button>
+    <button type="button" class="layui-btn layui-btn-sm layui-btn-danger" id="cancel-btn"
+      style="width:80px;">cancel</button>
+  </div>
+</div>
+<!-- carModelModal modal box  end-->
+
+</html>

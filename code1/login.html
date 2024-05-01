@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>carsADMIN login/register</title>
+    <!-- import LayUI style -->
+    <link rel="stylesheet" href="/assets/lib/layui/css/layui.css" />
+    <!-- Import your own style sheet -->
+    <link rel="stylesheet" href="/assets/css/login.css" />
+</head>
+
+<body>
+    <!-- head Logo area -->
+    <div class="layui-main">
+        <img src="/assets/images/logo.png" alt="" />
+    </div>
+
+    <!-- Login registration area -->
+    <div class="loginAndRegBox">
+        <div class="title-box"></div>
+        <!-- Login div -->
+        <div class="login-box">
+            <!-- Login form -->
+            <form class="layui-form" id="form_login">
+                <!-- username -->
+                <div class="layui-form-item">
+                    <i class="layui-icon layui-icon-username"></i>
+                    <input type="text" name="userid" required lay-verify="required" placeholder="userid"
+                        autocomplete="off" class="layui-input" />
+                </div>
+                <!-- password -->
+                <div class="layui-form-item">
+                    <i class="layui-icon layui-icon-password"></i>
+                    <input type="password" name="password" required lay-verify="required|pwd" placeholder="password"
+                        autocomplete="off" class="layui-input" />
+                </div>
+                <!-- Login button -->
+                <div class="layui-form-item">
+                    <!-- Note: The difference between a form submit button and a normal button is lay-submit Attributes -->
+                    <button class="layui-btn layui-btn-fluid layui-btn-normal" lay-submit>login</button>
+                </div>
+                <div class="layui-form-item links">
+                    <a href="javascript:;" id="link_reg">register</a>
+                </div>
+            </form>
+        </div>
+        <!-- registered div -->
+        <div class="reg-box">
+            <!-- Registration form -->
+            <form class="layui-form" id="form_reg">
+                <div class="layui-form-item">
+                    <select name="city_name" lay-verify="" lay-search>
+                        <option value="">select City</option>
+                        
+                      </select>     
+                 
+                </div>
+                <!-- username -->
+                <div class="layui-form-item">
+                    <i class="layui-icon layui-icon-username"></i>
+                    <input type="text" name="userid" required lay-verify="required" placeholder="input user id"
+                        autocomplete="off" class="layui-input" />
+                </div>
+                <div class="layui-form-item">
+                    <i class="layui-icon layui-icon-username"></i>
+                    <input type="text" name="username"     placeholder="input user name"
+                        autocomplete="off" class="layui-input" />
+                </div>
+                <!-- password -->
+                <div class="layui-form-item">
+                    <i class="layui-icon layui-icon-password"></i>
+                    <input type="password" name="password" required lay-verify="required|pwd"
+                        placeholder="input password " autocomplete="off" class="layui-input" />
+                </div>
+                <!-- Password confirmation box -->
+                <div class="layui-form-item">
+                    <i class="layui-icon layui-icon-password"></i>
+                    <input type="password" name="repassword" required lay-verify="required|pwd|repwd"
+                        placeholder="confirm" autocomplete="off" class="layui-input" />
+                </div>
+                <!-- Register button -->
+                <div class="layui-form-item">
+                    <!-- Note: The difference between a form submit button and a normal button is lay-submit Attributes -->
+                    <button class="layui-btn layui-btn-fluid layui-btn-normal" lay-submit>register</button>
+                </div>
+                <div class="layui-form-item links">
+                    <a href="javascript:;" id="link_login"> login</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- import Layui JS file -->
+    <script src="/assets/lib/layui/layui.js"></script>
+    <!-- import JQuery -->
+    <script src="/assets/lib/jquery.js"></script>
+    <!-- Import your own package baseAPI.js -->
+    <script src="/assets/js/baseAPI.js"></script>
+    <!-- Import your own JavaScript script -->
+    <script src="/assets/js/login.js"></script>
+
+
+
+
+
+</body>
+
+</html>

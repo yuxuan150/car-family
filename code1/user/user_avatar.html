@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/assets/lib/layui/css/layui.css" />
+    <link rel="stylesheet" href="/assets/lib/cropper/cropper.css" />
+    <link rel="stylesheet" href="/assets/css/user/user_avatar.css" />
+  </head>
+  <body>
+    <!-- card area -->
+    <div class="layui-card">
+      <div class="layui-card-header">changeAvatar</div>
+      <div class="layui-card-body">
+        <!-- Image cropping and preview area in the first row -->
+        <div class="row1">
+          <!-- Image cropping area -->
+          <div class="cropper-box">
+            <!-- This img tag is very important, it will be initialized as the cropping area in the future -->
+            <img id="image" src="/assets/images/sample.jpg" />
+          </div>
+          <!-- Image preview area -->
+          <div class="preview-box">
+            <div>
+              <!--Preview area with width and height of 100px -->
+              <div class="img-preview w100"></div>
+              <p class="size">100 x 100</p>
+            </div>
+            <div>
+              <!-- Preview area with width and height of 50px -->
+              <div class="img-preview w50"></div>
+              <p class="size">50 x 50</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- The button area of the second row -->
+        <div class="row2">
+          <!-- Through the accept attribute, you can specify what types of files the user is allowed to select. -->
+          <input type="file" id="file" accept="image/png,image/jpeg" />
+          <button type="button" class="layui-btn" id="btnChooseImage">upload</button>
+          <button type="button" class="layui-btn layui-btn-danger" id="btnUpload">submit</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="/assets/lib/layui/layui.js"></script>
+    <script src="/assets/lib/jquery.js"></script>
+    <script src="/assets/lib/cropper/Cropper.js"></script>
+    <script src="/assets/lib/cropper/jquery-cropper.js"></script>
+    <script src="/assets/js/baseAPI.js"></script>
+    <script src="/assets/js/user/user_avatar.js"></script>
+  </body>
+</html>

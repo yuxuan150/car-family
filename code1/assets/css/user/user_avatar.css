@@ -1,0 +1,75 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  padding: 15px;
+  background-color: #f2f3f5;
+}
+
+/* Set the width of the main card body area */
+.layui-card-body {
+  width: 500px;
+}
+
+/* Set the styles for the button row */
+.row2 {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+/* Set the styles for the cropping area */
+.cropper-box {
+  width: 350px;
+  height: 350px;
+  background-color: cyan;
+  overflow: hidden;
+}
+
+/* Set the styles for the first preview area */
+.w100 {
+  width: 100px;
+  height: 100px;
+  background-color: gray;
+}
+
+/* Set the styles for the second preview area */
+.w50 {
+  width: 50px;
+  height: 50px;
+  background-color: gray;
+  margin-top: 50px;
+}
+
+/* Set the styles for the text below the preview area */
+.size {
+  font-size: 12px;
+  color: gray;
+  text-align: center;
+}
+
+/* Set the styles for the image row */
+.row1 {
+  display: flex;
+}
+
+/* Set the styles for the preview-box area */
+.preview-box {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
+}
+
+/* Set the styles for the img-preview area */
+.img-preview {
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+#file {
+  display: none;
+}

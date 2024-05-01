@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- Import layui styles -->
+    <link rel="stylesheet" href="/assets/lib/layui/css/layui.css" />
+    <!-- Import your own styles -->
+    <link rel="stylesheet" href="/assets/css/user/user_info.css" />
+  </head>
+  <body>
+    <!-- card area -->
+    <div class="layui-card">
+      <div class="layui-card-header">changeUserInfo</div>
+      <div class="layui-card-body">
+        <!-- form form area -->
+        <form class="layui-form" lay-filter="formUserInfo">
+          <!-- This is a hidden field -->
+          <!-- <input type="hidden" name="userid" value="" /> -->
+          <div class="layui-form-item">
+            <label class="layui-form-label">userid</label>
+            <div class="layui-input-block">
+              <input type="text" name="userid" required lay-verify="required" placeholder="" autocomplete="off" class="layui-input" readonly />
+            </div>
+          </div>
+   <div class="layui-form-item">
+            <label class="layui-form-label">username</label>
+            <div class="layui-input-block">
+              <input type="text" name="username" required lay-verify="required" placeholder="" autocomplete="off" class="layui-input"   />
+            </div>
+          </div>
+
+          
+          <!-- <div class="layui-form-item">
+            <label class="layui-form-label">nick</label>
+            <div class="layui-input-block">
+              <input type="text" name="nickname" required lay-verify="required|nickname" placeholder="" autocomplete="off" class="layui-input" />
+            </div>
+          </div> -->
+          <div class="layui-form-item">
+            <label class="layui-form-label">email</label>
+            <div class="layui-input-block">
+              <input type="text" name="email" required lay-verify="required|email" placeholder="" autocomplete="off" class="layui-input" />
+            </div>
+          </div>
+          <div class="layui-form-item">
+            <div class="layui-input-block">
+              <button class="layui-btn" lay-submit lay-filter="formDemo">submit</button>
+              <button type="reset" class="layui-btn layui-btn-primary" id="btnReset">reset</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!--Import layui's js -->
+    <script src="/assets/lib/layui/layui.js"></script>
+    <!-- import jquery -->
+    <script src="/assets/lib/jquery.js"></script>
+    <!-- import baseAPI -->
+    <script src="/assets/js/baseAPI.js"></script>
+    <!-- Import your own js -->
+    <script src="/assets/js/user/user_info.js"></script>
+  </body>
+</html>

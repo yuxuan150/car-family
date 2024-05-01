@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="/assets/lib/layui/css/layui.css" />
+  <link rel="stylesheet" href="/assets/css/cars/list.css" />
+</head>
+
+<body>
+  <!-- card area -->
+  <div class="layui-card">
+    <div class="layui-card-header">userAdmin</div>
+    <div class="layui-card-body">
+      <!-- filter area -->
+      <form class="layui-form" id="form-search">
+        <div class="layui-input-block" style="display: table-cell">
+          <div class="layui-input-inline" style="width: 150px">
+            <input type="text" name="userid" placeholder="userid" autocomplete="off" class="layui-input">
+          </div>
+        </div>
+
+        <div style="display: table-cell">
+          <button class="layui-btn layui-btn-sm" lay-submit lay-filter="search" style="margin-left: 15px"><i
+              class="layui-icon">&#xe615;</i>filter
+          </button>
+
+
+          <button id="add" class="layui-btn layui-btn-sm" style="margin-left: 15px">
+            <i class="layui-icon">&#xe608;</i> addNew
+          </button>
+        </div>
+
+
+      </form>
+      <!-- list area -->
+      <table class="layui-table">
+        <colgroup>
+          <col />
+        </colgroup>
+        <thead>
+
+        </thead>
+        <tbody></tbody>
+      </table>
+
+      <!--formEditOrUpdate-->
+      <div class="layui-row" id="open_div" style="display:none;">
+        <form id="add_eidt_form" class="layui-form" action="" style="margin-top: 20px;text-align:center;">
+          <!--Hidden field action, used to distinguish between adding and editing actions-->
+          <input type="hidden" name="action" id="action">
+          <!--Hidden field id, used to provide the primary key required for editing-->
+          <input type="hidden" name="id" id="id">
+          <!--Hidden field request_type, used to provide the request method:get,post,put-->
+          <input type="hidden" name="request_type" id="request_type">
+
+
+          <div class="layui-form-item" style="width: 80%">
+            <label class="layui-form-label">cityName</label>
+            <div class="layui-input-block">
+              <select name="location_id" lay-verify="" lay-search>
+                <option value="">select City</option>
+
+              </select>
+            </div>
+          </div>
+
+          <div class="layui-form-item" style="width: 80%">
+            <label class="layui-form-label">role</label>
+            <div class="layui-input-block">
+              <select name="role" lay-verify="">
+                <option value="USER">USER</option>
+                <option value="ADMIN">ADMIN</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="layui-form-item noedit" style="width: 80%">
+            <label class="layui-form-label">userID</label>
+            <div class="layui-input-block">
+              <input type="text" name="userid" required lay-verify="required" placeholder="input user id"
+                autocomplete="off" class="layui-input" />
+
+              </select>
+            </div>
+          </div>
+
+          <div class="layui-form-item" style="width: 80%">
+            <label class="layui-form-label">userName</label>
+            <div class="layui-input-block">
+              <input type="text" name="username" required lay-verify="required" placeholder="input user name"
+                autocomplete="off" class="layui-input" />
+
+              </select>
+            </div>
+          </div>
+
+          <div class="layui-form-item" style="width: 80%">
+            <label class="layui-form-label">password</label>
+            <div class="layui-input-block">
+              <input  name="password"    placeholder="leave blank if no change!"
+                autocomplete="off" class="layui-input" />
+
+              </select>
+            </div>
+          </div>
+
+          <div class="layui-form-item" style="width: 80%">
+            <label class="layui-form-label">repassword</label>
+            <div class="layui-input-block">
+              <input  name="repassword"  placeholder="leave blank if no change!"
+                autocomplete="off" class="layui-input" />
+
+              </select>
+            </div>
+          </div>
+
+          <div class="layui-form-item" style="margin-left: 40%">
+            <div class="layui-btn-group">
+              <button type="button" class="layui-btn" lay-submit="" lay-filter="update_submit">submit</button>
+              <button type="reset" class="layui-btn layui-btn-primary">reset</button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+
+
+      <!-- paging area -->
+      <div id="pageBox"></div>
+    </div>
+  </div>
+
+  <!-- Template engine for list data -->
+  <script type="text/html" id="tpl-titles">
+      <tr>
+        {{each titles}}
+        <th>{{$value}}</th>
+        {{/each}}
+        <th>action</th>
+      </tr>
+    </script>
+  <script type="text/html" id="tpl-table">
+      {{each data as item index}}
+      <tr>
+        {{each titles as title}}
+        <td>{{item[title]}}</td>
+        {{/each}}
+        <td>
+          <!-- <a class="layui-btn layui-btn-xs btn-edit" data-id="">edit</a>
+          <a class="layui-btn layui-btn-xs layui-btn-danger" lay-event="del">delete</a> -->
+          <button type="button" class="layui-btn layui-btn-xs btn-edit" data-id="{{item['userid']}}">edit</button>
+          <button type="button" class="layui-btn layui-btn-danger layui-btn-xs btn-delete" data-id="{{item['userid']}}">delete</button>  
+        </td>
+      </tr>
+      {{/each}}
+    </script>
+
+
+
+
+
+
+
+
+
+
+  <!-- Add a category popup layer -->
+  <script type="text/html" id="dialog-add">
+    <form class="layui-form" id="form-add">
+      <div class="layui-form-item">
+        <label class="layui-form-label">Category Name</label>
+        <div class="layui-input-block">
+          <input type="text" name="name" required  lay-verify="required" placeholder="Please enter the category name" autocomplete="off" class="layui-input">
+        </div>
+      </div>
+      <div class="layui-form-item">
+        <label class="layui-form-label">Category name</label>
+        <div class="layui-input-block">
+          <input type="text" name="alias" required  lay-verify="required" placeholder="Please enter the category name" autocomplete="off" class="layui-input">
+        </div>
+      </div>
+      <div class="layui-form-item">
+        <div class="layui-input-block">
+          <button class="layui-btn" lay-submit lay-filter="formDemo">Confirm add</button>
+          <button type="reset" class="layui-btn layui-btn-primary">reset</button>
+        </div>
+      </div>
+    </form>
+  </script>
+
+
+
+
+
+
+
+  <!-- Template structure for category options -->
+  <script type="text/html" id="tpl-cate">
+      <option value="">all categories</option>
+      {{each data}}
+      <option value="{{$value.Id}}">{{$value.name}}</option>
+      {{/each}}
+    </script>
+
+  <!-- Import third-party JS plug-ins -->
+  <script src="/assets/lib/layui/layui.js"></script>
+  <script src="/assets/lib/jquery.js"></script>
+  <script src="/assets/js/baseAPI.js"></script>
+  <script src="/assets/js/common.js"></script>
+  <script src="/assets/lib/template-web.js"></script>
+  <!-- Import your own JS script -->
+  <script src="/assets/js/systems/users.js"></script>
+
+
+
+</body>
+
+</html>

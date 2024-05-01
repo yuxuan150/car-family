@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="/assets/lib/layui/css/layui.css" />
+  <link rel="stylesheet" href="/assets/css/cars/list.css" />
+</head>
+
+<body>
+
+
+  <!-- card area -->
+  <div class="layui-card">
+    <div class="layui-card-header">online_trade</div>
+    <div class="layui-card-body">
+      <!-- filter area -->
+      <form class="layui-form" id="form-search">
+        <div class="layui-input-block" style="display: table-cell">
+
+          <div class="layui-input-inline" style="width: 150px">
+            <input type="text" name="modelN" placeholder="modelName" autocomplete="off" class="layui-input">
+          </div>
+        </div>
+
+        <div style="display: table-cell">
+          <button class="layui-btn " lay-submit lay-filter="search" style="margin-left: 15px"><i
+              class="layui-icon">&#xe615;</i>filter
+          </button>
+        <!--   <button type="reset" class="layui-btn layui-btn-primary ">
+            <i class="layui-icon">&#xe631;</i> reset
+          </button>
+
+
+          <button id="add" class="layui-btn " style="margin-left: 15px">
+            <i class="layui-icon">&#xe608;</i> sellCar
+          </button> -->
+          
+       
+
+
+
+
+        </div>
+
+
+      </form>
+      <!-- list area -->
+      <table class="layui-table">
+        <colgroup>
+          <col />
+
+
+        </colgroup>
+        <thead>
+
+        </thead>
+        <tbody></tbody>
+      </table>
+
+      <!--formEditOrUpdate-->
+      <div class="layui-row" id="open_div" style="display:none;">
+        <form id="add_eidt_form" class="layui-form" action="" style="margin-top: 20px;align:center;">
+          <!--Hidden field action, used to distinguish between adding and editing actions-->
+          <input type="hidden" name="action" id="action">
+          <!--Hidden field id, used to provide the primary key required for editing-->
+          <input type="hidden" name="flag" id="flag">
+          <!--Hidden field request_type, used to provide the request method:get,post,put-->
+          <input type="hidden" name="request_type" id="request_type">
+          <input type="hidden" name="carid" id="carid">
+          <div class="layui-form-item" style="display: table;width: 96%">
+            <div class="layui-form-item" style="display: table-cell;width: 50%">
+              <label class="layui-form-label">ModelName</label>
+              <div class="layui-input-block">
+                <input type="text" name="model_name" style="color:silver" placeholder="select a carModel" readonly="true" autocomplete="off"
+                  class="layui-input" lay-verify="required">
+              </div>
+            </div>
+            <div class="layui-form-item" style="display: table-cell;width: 50%">
+              <label class="layui-form-label">company</label>
+              <div class="layui-input-block">
+                <input type="text" name="model_company"  style="color:silver"   disabled="true" class="layui-input"
+                   >
+              </div>
+            </div>
+          </div>
+          <div class="layui-form-item" style="display: table;width: 96%">
+            <div class="layui-form-item" style="display: table-cell;width: 50%">
+              <label class="layui-form-label">color</label>
+              <div class="layui-input-block">
+                <input type="text" name="model_color" disabled="true" style="color:silver"  readonly="true" autocomplete="off" class="layui-input"
+                  lay-verify="required">
+              </div>
+            </div>
+            <div class="layui-form-item" style="display: table-cell;width: 50%">
+              <label class="layui-form-label">officialPrice</label>
+              <div class="layui-input-block">
+                <input type="text" name="model_official_price" style="color:silver"  disabled="true" readonly="true" autocomplete="off" class="layui-input"
+                  lay-verify="required">
+              </div>
+            </div>
+          </div>
+
+
+
+          
+            <div class="layui-form-item">
+              <label class="layui-form-label">price</label>
+              <div class="layui-input-block">
+                <input type="text" name="price" placeholder="input the price you want to sale" autocomplete="off" class="layui-input"
+                  lay-verify="required">
+              </div>
+            </div>
+          
+          <div class="layui-form-item" style="margin-left: 40%">
+            <div class="layui-btn-group">
+              <button type="button" class="layui-btn" lay-submit="" lay-filter="add_submit">submit</button>
+              <button type="reset" class="layui-btn layui-btn-primary">reset</button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+
+      <!-- paging area -->
+      <div id="pageBox"></div>
+    </div>
+  </div>
+
+  <!-- Template engine for list data -->
+  <script type="text/html" id="tpl-titles">
+      <tr>
+        {{each titles}}
+        <th>{{$value}}</th>
+        {{/each}}
+        
+      </tr>
+    </script>
+  <script type="text/html" id="tpl-table">
+      {{each data as item index}}
+      <tr>
+        {{each titles as title}}
+        <td>{{item[title]}}</td>
+        {{/each}}
+   
+      </tr>
+      {{/each}}
+    </script>
+
+
+
+
+
+
+
+
+
+
+  <!-- Add a category popup layer -->
+  <script type="text/html" id="dialog-add">
+    <form class="layui-form" id="form-add">
+      <div class="layui-form-item">
+        <label class="layui-form-label">Category Name</label>
+        <div class="layui-input-block">
+          <input type="text" name="name" required  lay-verify="required" placeholder="Please enter the category name" autocomplete="off" class="layui-input">
+        </div>
+      </div>
+      <div class="layui-form-item">
+        <label class="layui-form-label">Category name</label>
+        <div class="layui-input-block">
+          <input type="text" name="alias" required  lay-verify="required" placeholder="Please enter the category name" autocomplete="off" class="layui-input">
+        </div>
+      </div>
+      <div class="layui-form-item">
+        <div class="layui-input-block">
+          <button  type="button" class="layui-btn" lay-submit lay-filter="addSale">Confirm add</button>
+          <button type="reset" class="layui-btn layui-btn-primary">reset</button>
+        </div>
+      </div>
+    </form>
+  </script>
+
+
+
+
+
+
+
+  <!-- Template structure for category options -->
+  <script type="text/html" id="tpl-cate">
+      <option value="">all categories</option>
+      {{each data}}
+      <option value="{{$value.Id}}">{{$value.name}}</option>
+      {{/each}}
+    </script>
+
+  <!-- Import third-party JS plug-ins -->
+  <script src="/assets/lib/layui/layui.js"></script>
+  <script src="/assets/lib/jquery.js"></script>
+  <script src="/assets/js/baseAPI.js"></script>
+  <script src="/assets/js/common.js"></script>
+  <script src="/assets/lib/template-web.js"></script>
+  <!-- Import your own JS script -->
+  <script src="/assets/js/cars/online_trade.js"></script>
+
+
+
+</body>
+<!-- modal box -->
+<div id="carModelModal" style="display: none;">
+  <div class="layui-form">
+    <div class="layui-form-item">
+      <label class="layui-form-label">search:</label>
+      <div class="layui-input-inline">
+        <input type="text" id="search-car-model" placeholder="select city name" class="layui-input">
+      </div>
+      <button type="button" class="layui-btn layui-btn-sm" id="search-car-model-btn">search</button>
+    </div>
+    <table id="car-model-table" lay-filter="car-model-table"></table>
+  </div>
+  <div id="pageCarModelBox"></div>
+  <div class="layui-form-item">
+    <button type="button" class="layui-btn layui-btn-sm" id="confirm-carModel-btn" style="width:80px;"> ok </button>
+    <button type="button" class="layui-btn layui-btn-sm layui-btn-danger" id="cancel-btn"
+      style="width:80px;">cancel</button>
+  </div>
+</div>
+
+</html>

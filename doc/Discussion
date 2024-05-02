@@ -1,0 +1,46 @@
+Demonstrate
+
+1. The main goal of our sales website is to create a trading platform in which both buyers and sellers have the opportunity to trade.
+We have the advantage of a large database.
+
+2. The main function of the website is that users can create accounts, search for cars, list cars for sale, and interact with other users.
+At the same time, you can check how many kilometers of cars exist, sort by price and other very practical functions.
+
+3	 The advantage of using node.js and express is fast development efficiency. This combination can lead to a faster development cycle, 
+because in the whole application, from the client to the server, the same tools and examples are used at the same time:
+combined with Node.js and Ex Press supports native asynchronous and non-blocking operations, can handle a large number of concurrent connections,
+and is suitable for real-time applications and high-load environments. There is also high development flexibility: 
+the non-constrained nature of Express allows developers to build their applications as needed, 
+rather than being forced to follow a specific architecture.
+
+4. We plan to launch a mobile version because smartphones are increasingly used while using AI to help users choose the right vehicle.
+AI can also accurately push advertisements to expand sales.
+
+Implementation Challenges
+1. Data Integration and Consistency:
+•	Challenge: Integrating data from multiple sources such as Kaggle into a unified system while ensuring data consistency and accuracy can be challenging.
+•	Solution: Implement robust ETL (Extract, Transform, Load) processes to validate and clean data before it is imported into the database. Regularly update and audit the data to maintain its accuracy.
+2. Scalability:
+•	Challenge: As the number of users and the volume of data grow, the system must scale effectively without degradation in performance.
+•	Solution: Design the backend to support horizontal scaling. Use load balancers and distribute database operations across multiple servers.
+3. Performance Optimization:
+•	Challenge: Ensuring fast response times for data retrieval, especially when dealing with complex queries involving multiple joins and large datasets.
+•	Solution: Optimize SQL queries, use indexing effectively, and consider denormalizing some parts of the database if necessary. Utilize caching mechanisms to improve response times.
+Design Deviations
+1. Real-Time Data Updates:
+•	Initial Design: Might not have considered the need for displaying real-time data.
+•	Deviation: Implement web sockets or long polling to provide users with real-time updates on car recalls and availability.
+2. Advanced Search and Filter Options:
+•	Initial Design: Basic search and filter functionalities based on limited parameters.
+•	Deviation: Introduce advanced filtering options that allow users to customize searches based on multiple attributes simultaneously, improving the user experience.
+3. Personalization:
+•	Initial Design: One-size-fits-all user interface and experience.
+•	Deviation: Introduce machine learning algorithms to analyze user behavior and preferences to provide personalized car recommendations.
+Potential NoSQL Integration
+1. User Preferences and Session Management:
+•	Use Case: Store user preferences, session data, and interaction history in a NoSQL database to facilitate quick access and scalability.
+•	Potential Technology: Document stores like MongoDB stores like Redis.
+2. Handling Large Amounts of Unstructured Data:
+•	Use Case: Manage large volumes of unstructured data such as images, videos, and large text files (e.g., repair manuals, car reviews).
+•	Potential Technology: Use a NoSQL database like MongoDB, which can handle large volumes of unstructured data more efficiently than relational databases.
+

@@ -6,7 +6,7 @@ We have the advantage of a large database.
 2. The main function of the website is that users can create accounts, search for cars, list cars for sale, and interact with other users.
 At the same time, you can check how many kilometers of cars exist, sort by price and other very practical functions.
 
-3	 The advantage of using node.js and express is fast development efficiency. This combination can lead to a faster development cycle, 
+3. The advantage of using node.js and express is fast development efficiency. This combination can lead to a faster development cycle, 
 because in the whole application, from the client to the server, the same tools and examples are used at the same time:
 combined with Node.js and Ex Press supports native asynchronous and non-blocking operations, can handle a large number of concurrent connections,
 and is suitable for real-time applications and high-load environments. There is also high development flexibility: 

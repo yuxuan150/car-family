@@ -38,7 +38,9 @@ I used MySQL Bench to connect to GCP, and then I had to update the host, passwor
 Consequently, it was necessary to repeatedly establish new firewall rules. Thus, I recommend setting a reasonable IP range to ensure connectivity to GCP even when IP addresses change.
 Yuxuan Nan: As for me, I think challenge for me is to write advanced query, since it needs to use at least two of operation, also even though you write the query out, it still needs a lot of time to debug in order to match the result from database. 
 Zixin Mao: AS for me, my challenge is that when I try to write routes and restful API to connect the sql into some useful API, there is some grammar mistakes and implementation errors, for example for adding active user, it need to require the correct Advanced SQL of procedure 
-and thise function should be called properly in the Frontend, especially when debugging the SQL and test to see if it worked properly. What is more, it also took sometime to connect the backend to the frontend when some API may not be properly connected. 
+and thise function should be called properly in the Frontend, especially when debugging the SQL and test to see if it worked properly. What is more, it also took sometime to connect the backend to the frontend when some API may not be properly connected.
+When using Express.JS, it is also challenge that when we try to set up the environment and framework. 
+
 8.	Are there other things that changed comparing the final application with the original proposal?
 No, there are no additional changes. All these changes are talked previously.
 
@@ -49,6 +51,6 @@ Maybe we would add more features in to our app, so that it would not only a Auto
 The most frustrating event during stage 3 was when a team member left our group. Faced with this unexpected situation, we didn't panic; instead, we calmly reassessed and redistributed the tasks. After reassigning the roles, the workload was approximately equal for each remaining member.
 Hao Liu: Design the database and connect it to the local environment using Google Cloud Platform (GCP). Design the user interface (UI) and develop APIs on the frontend using JavaScript.
 Yuxuan Nan: Working together with Zixin Mao to the backend, sql, and some advanced database feature.
-Zixin Mao: Working together with Yuxuan Nan on Express.JS, implementation of RESTFUL API, and Advanced SQL writing such as Procedure, Trigger, Set transaction. 
+Zixin Mao: Working together with Yuxuan Nan on Express.JS, implementation of RESTFUL API, and Advanced SQL writing such as Procedure, Trigger, Set transaction, writing javascript of routes.
 
 Through this project, every team member collaborated effectively with clear role divisions. We communicated regularly to ensure smooth progress on the project. Our success would not have been possible without the guidance of our teaching assistant, Hongtai Cao. He provided us with the right direction for our work, and his timely responses to our questions were immensely helpful.
